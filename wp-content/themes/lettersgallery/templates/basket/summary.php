@@ -27,7 +27,7 @@ $shipping_total = WC()->cart->get_shipping_total();
                 <?= $shipping_total === "0" ? translate_and_output("free") : wc_price($shipping_total); ?>
             </span>
         </p>
-        <h3 class="h7 mb-0 fw-semibold summary-total d-flex justify-content-between align-items-center">
+        <h3 class="h7 mb-0 summary-total d-flex justify-content-between align-items-center">
             <span>
                 <?= translate_and_output('total'); ?>
             </span>

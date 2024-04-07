@@ -156,7 +156,7 @@
       & .artists-list__name {
         align-self: flex-start;
 
-        @include tablet(){
+        @include tablet() {
           margin-left: rem(59);
         }
       }
@@ -314,6 +314,24 @@
         margin-top: 0;
       }
     }
+  }
+}
+
+.artists-list__item {
+  @media (hover: hover) {
+    &:hover {
+      & img {
+        transform: scale($scale);
+      }
+    }
+  }
+}
+
+.artists-list__thumb {
+  overflow: hidden;
+
+  & img {
+    @include transition(transform);
   }
 }
 

@@ -60,7 +60,7 @@
       }
 
       & .products__image {
-        transform: scale(1.12);
+        transform: scale($scale);
       }
     }
   }

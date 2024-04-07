@@ -48,6 +48,22 @@
   }
 }
 
+.gallery-main__thumb {
+  overflow: hidden;
+
+  @media (hover: hover) {
+    &:hover {
+      & img {
+        transform: scale($scale);
+      }
+    }
+  }
+
+  & img {
+    @include transition(transform);
+  }
+}
+
 .product-wrapper {
   grid-column: 8 / -1;
 
@@ -61,11 +77,11 @@
     margin-top: var(--offset-26);
   }
 
-  & p:not(.products__price){
+  & p:not(.products__price) {
     font-size: rem(16);
     line-height: rem(26);
 
-    @include tablet(){
+    @include tablet() {
       font-size: rem(15);
     }
   }

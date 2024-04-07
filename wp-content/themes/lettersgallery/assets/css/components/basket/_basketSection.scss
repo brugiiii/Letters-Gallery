@@ -21,8 +21,8 @@
 .basket-wrapper {
   margin-top: var(--offset-80);
 
-  &:has( .empty-basket){
-    @include tablet(){
+  &:has( .empty-basket) {
+    @include tablet() {
       margin-top: rem(60);
     }
   }
@@ -33,6 +33,9 @@
 
   @include tablet() {
     grid-column: 1 / -1;
+    grid-row: 2;
+
+    margin-top: rem(50);
   }
 }
 
@@ -40,7 +43,7 @@
   grid-column: 8 / -1;
 
   @include tablet() {
-    display: none;
+    grid-column: 1 / -1;
   }
 }
 
@@ -91,15 +94,15 @@
     }
 
     & > span {
-      &:first-child{
-        @include tablet(){
+      &:first-child {
+        @include tablet() {
           font-size: rem(18);
           line-height: rem(21.94);
         }
       }
 
-      &:last-child{
-        @include tablet(){
+      &:last-child {
+        @include tablet() {
           font-size: rem(20);
           line-height: rem(24.38);
         }
@@ -130,7 +133,7 @@
 }
 
 .basket-products__title {
-  @include tablet(){
+  @include tablet() {
     font-size: rem(20);
     line-height: rem(24.38);
   }
@@ -139,7 +142,7 @@
 .basket-products__size {
   margin-top: rem(22);
 
-  @include tablet(){
+  @include tablet() {
 
   }
 }
@@ -176,7 +179,7 @@
   height: rem(32);
   border: rem(1) solid $black-color;
 
-  @include tablet(){
+  @include tablet() {
     height: rem(25);
     display: flex;
     align-items: flex-end;
@@ -184,7 +187,7 @@
 }
 
 .counter__value {
-  @include tablet(){
+  @include tablet() {
     font-size: rem(18);
     line-height: rem(21.94);
   }
@@ -198,7 +201,7 @@
 
   padding: rem(7) rem(16) rem(6);
 
-  @include tablet(){
+  @include tablet() {
     width: rem(14);
     height: rem(14);
 
@@ -206,7 +209,7 @@
   }
 
   &:first-of-type {
-    @include tablet(){
+    @include tablet() {
       padding-left: rem(12);
       padding-right: rem(18);
     }
@@ -215,7 +218,7 @@
       width: rem(17);
       height: rem(17);
 
-      @include tablet(){
+      @include tablet() {
         width: rem(14);
         height: rem(14);
       }
@@ -223,7 +226,7 @@
   }
 
   &:last-of-type {
-    @include tablet(){
+    @include tablet() {
       padding-left: rem(18);
       padding-right: rem(12);
     }
@@ -232,7 +235,7 @@
       width: rem(17);
       height: rem(1);
 
-      @include tablet(){
+      @include tablet() {
         width: rem(14);
       }
     }
@@ -261,6 +264,19 @@
   padding: rem(50) rem(20);
   background-color: $base-11;
 
+  @include tablet() {
+    padding: rem(39) rem(15) rem(39) rem(13);
+  }
+
+  & h3 {
+    &:first-child {
+      @include tablet() {
+        font-size: rem(26);
+        line-height: rem(31.69);
+      }
+    }
+  }
+
   & p {
     padding-bottom: rem(7.5);
     border-bottom: rem(0.5) solid $base-15;
@@ -277,6 +293,19 @@
 
 .summary-total {
   margin-top: var(--offset-30);
+
+
+  & > span {
+    font-weight: 600;
+
+    &:first-child {
+      @include tablet() {
+        font-size: rem(24);
+        font-weight: 500;
+        line-height: rem(29.26);
+      }
+    }
+  }
 }
 
 .summary-checkout {
@@ -286,6 +315,11 @@
   margin-top: var(--offset-55);
 
   color: $white-color;
+
+  @include tablet(){
+    font-size: rem(18);
+    line-height: rem(21.94);
+  }
 }
 
 .empty-basket {
@@ -296,7 +330,7 @@
 
   border: rem(1) solid #BABABA;
 
-  @include tablet(){
+  @include tablet() {
     grid-column: 1 / -1;
 
     padding-top: rem(25);
@@ -316,7 +350,7 @@
 .empty-basket__text {
   margin-top: rem(3);
 
-  @include tablet(){
+  @include tablet() {
     font-size: rem(16);
     line-height: rem(19.5);
   }

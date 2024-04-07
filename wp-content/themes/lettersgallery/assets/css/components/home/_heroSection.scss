@@ -105,9 +105,23 @@
 
 .hero-gallery__item {
   height: rem(666);
+  overflow: hidden;
 
   @include tablet() {
     height: rem(380);
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      & img {
+        transform: scale($scale);
+      }
+    }
+  }
+
+  & img {
+    @include transition(transform);
   }
 }
 
