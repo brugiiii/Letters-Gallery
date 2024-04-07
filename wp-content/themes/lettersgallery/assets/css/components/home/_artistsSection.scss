@@ -343,6 +343,8 @@
   font-size: rem(18);
   line-height: rem(21.94);
 
+  color: $black-color;
+
   @include tablet() {
     display: block;
   }
