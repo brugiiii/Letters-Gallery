@@ -1,0 +1,121 @@
+@import "../../components/productMarkup";
+
+.accessories {
+  padding-top: var(--offset-240);
+  padding-bottom: var(--offset-240);
+}
+
+.accessories-title {
+  text-align: center;
+
+  @include tablet() {
+    text-align: left;
+  }
+}
+
+.accessories-wrapper {
+  max-width: rem(1060);
+  margin-top: var(--offset-36);
+
+  @include tablet() {
+    max-width: rem(330);
+  }
+}
+
+.accessories-slide {
+  box-sizing: border-box;
+}
+
+.products__thumb {
+  height: rem(425);
+}
+
+.products__title {
+  @include tablet() {
+    margin-top: rem(22);
+
+    font-size: rem(20);
+    line-height: rem(24.38);
+  }
+}
+
+.products__price {
+  @include tablet() {
+    margin-top: rem(18);
+    justify-content: flex-start;
+  }
+
+  & span {
+    &:first-child {
+      @include tablet() {
+        margin-right: rem(32);
+
+        font-size: rem(22);
+        line-height: rem(26.82);
+      }
+    }
+
+    &:last-child {
+      @include tablet() {
+        font-size: rem(24);
+        line-height: rem(29.26);
+      }
+    }
+  }
+}
+
+.products__button {
+  @include tablet() {
+    font-size: rem(18);
+    line-height: rem(21.94);
+  }
+}
+
+.accessories-button {
+  @include hover(background-color $base-2 $base-1);
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  stroke: $white-color;
+
+  @include tablet() {
+    top: rem(360);
+    transform: initial;
+  }
+
+  &.prev {
+    right: calc(100% + 2.25rem);
+
+    @include tablet() {
+      right: unset;
+      left: rem(-22);
+    }
+  }
+
+  &.next {
+    left: calc(100% + 2.25rem);
+
+    @include tablet() {
+      left: unset;
+      right: rem(-22);
+    }
+  }
+}
+
+.accessories-icon {
+  width: rem(54);
+  height: rem(54);
+}
+
+.accessories-link {
+  @include hover(background-color transparent $base-1, color $black-color $white-color);
+
+  max-width: rem(347);
+
+  padding: rem(9);
+  border: rem(1) solid $black-color;
+  margin-top: var(--offset-60);
+}

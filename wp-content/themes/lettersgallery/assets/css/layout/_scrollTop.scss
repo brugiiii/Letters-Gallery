@@ -1,0 +1,32 @@
+.scroll-top {
+  @include hover(background-color $base-2 $base-1);
+
+  right: rem(80);
+  bottom: rem(28);
+
+  z-index: 1;
+
+  width: rem(52);
+  height: rem(52);
+
+  fill: $white-color;
+
+  transition-property: background-color, transform, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: $timing-function;
+
+  @include tablet(){
+    right: rem(23);
+    bottom: rem(58);
+  }
+
+  &.hidden {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+}
+
+.scroll-top__icon {
+  width: rem(16);
+  height: rem(27);
+}

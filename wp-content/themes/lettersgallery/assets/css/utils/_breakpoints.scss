@@ -1,0 +1,25 @@
+$breakpoints-max: (
+  mobile: 767,
+  tabletPortrait: 1023,
+  tablet: 1024,
+  desktop: 1919,
+  xs: 359,
+  sm: 575,
+  tb: 767,
+  md: 1023,
+  xl: 1419,
+  bg: 1919,
+);
+$breakpoints-min: (
+  mobile: 375,
+  tabletPortrait: 768,
+  tablet: 1024,
+  desktop: 1440,
+  fullHD: 1920,
+  xs: 360,
+  sm: 576,
+  tb: 768,
+  md: 1024,
+  xl: 1420,
+  bg: 1920,
+);

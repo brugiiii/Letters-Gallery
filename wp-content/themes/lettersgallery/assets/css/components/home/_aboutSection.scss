@@ -1,0 +1,95 @@
+.about {
+  padding-top: var(--offset-240);
+}
+
+.about-wrapper {
+  display: flex;
+  gap: var(--offset-56);
+
+  margin-top: var(--offset-56);
+
+  @include tablet() {
+    gap: rem(22);
+    flex-direction: column-reverse;
+  }
+}
+
+.images {
+  display: flex;
+  gap: rem(14);
+
+  @include tablet(){
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.images__item {
+  width: rem(220);
+  height: rem(294);
+
+  @include tablet(){
+    width: 100%;
+    height: rem(301);
+  }
+
+  &:first-child{
+    @include tablet(){
+      grid-column: 1 / 5;
+    }
+  }
+
+  &:last-child {
+    margin-top: rem(170);
+
+    @include tablet(){
+      grid-column: 3 / -1;
+
+      margin-top: rem(8);
+    }
+  }
+}
+
+.about-inner {
+  display: contents;
+
+  @include tablet() {
+    display: block;
+  }
+}
+
+.about-text {
+  & p:not(:first-child) {
+    margin-top: var(--offset-30);
+  }
+}
+
+.about-text__item {
+  display: block;
+  margin-top: var(--offset-30);
+
+  @include tablet() {
+    display: none;
+  }
+}
+
+.about-button {
+  display: none;
+
+  @include tablet() {
+    display: block;
+
+    margin-top: var(--offset-30);
+
+    font-size: rem(14);
+    line-height: rem(24);
+  }
+}
+
+.about-button.active .more{
+  display: none;
+}
+
+.about-button:not(.active) .less {
+  display: none;
+}

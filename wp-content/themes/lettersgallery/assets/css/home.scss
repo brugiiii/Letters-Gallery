@@ -1,0 +1,16 @@
+//UTILS
+@import "utils/breakpoints";
+@import "utils/functions";
+@import "utils/mixins";
+
+//BASE
+@import "base/variables";
+
+//VENDORS
+@import "vendors/skeleton";
+
+//COMPONENTS
+@import "components/home/heroSection";
+@import "components/home/aboutSection";
+@import "components/home/artistsSection";
+@import "components/home/gallerySection";

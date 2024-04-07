@@ -1,0 +1,38 @@
+.language-switcher {
+  display: flex;
+}
+
+.language-switcher__item {
+  &:not(:last-child) {
+    position: relative;
+
+    padding-right: rem(6);
+    margin-right: rem(6);
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      width: rem(1);
+      height: calc(100% - rem(2));
+
+      background-color: $black-color;
+    }
+  }
+}
+
+.language-switcher__link {
+  @include hover(color $base-4 $black-color);
+
+  font-size: rem(18);
+  line-height: calc(21.94 / 18);
+  text-transform: uppercase;
+
+  &.active {
+    color: $black-color;
+  }
+}

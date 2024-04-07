@@ -1,0 +1,31 @@
+@use "./breakpoints";
+@use "sass:math";
+@use "sass:map";
+
+@function vw($viewport, $size) {
+  @return math.div($size, map.get($breakpoints-min, $viewport)) * 100vw;
+}
+
+@function vwFullHD($size) {
+  @return vw(fullHD, $size);
+}
+
+@function vwDesktop($size) {
+  @return vw(desktop, $size);
+}
+
+@function vwTablet($size) {
+  @return vw(tablet, $size);
+}
+
+@function vwTabletPortrait($size) {
+  @return vw(tabletPortrait, $size);
+}
+
+@function vwMobile($size) {
+  @return vw(mobile, $size);
+}
+
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}

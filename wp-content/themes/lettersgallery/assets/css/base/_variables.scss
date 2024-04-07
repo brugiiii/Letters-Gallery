@@ -1,0 +1,78 @@
+//Colors
+$base-1: #3F352C;
+$base-2: #BDA18C;
+$base-3: #161616;
+$base-4: #B4B4B4;
+$base-5: #463B37;
+$base-6: #FFFFFF66;
+$base-7: #929292;
+$base-8: #797979;
+$base-9: #868686;
+$base-10: #C5C5C5;
+$base-11: #E6DCD3;
+$base-12: #323232;
+$base-13: #111111;
+$base-14: #838282;
+$base-15: #898989;
+
+$loader-background-color: #EEEEEE;
+$loader-highlight-color: #DEDEDE;
+
+$white-color: #FFF;
+$black-color: #000;
+
+$duration: 200ms;
+$timing-function: ease-in-out;
+
+:root {
+  --offset-240: #{rem(240)};
+  --offset-120: #{rem(120)};
+  --offset-100: #{rem(100)};
+  --offset-80: #{rem(80)};
+  --offset-70: #{rem(70)};
+  --offset-60: #{rem(60)};
+  --offset-56: #{rem(56)};
+  --offset-55: #{rem(55)};
+  --offset-52: #{rem(52)};
+  --offset-50: #{rem(50)};
+  --offset-49: #{rem(49)};
+  --offset-48: #{rem(48)};
+  --offset-42: #{rem(42)};
+  --offset-40: #{rem(40)};
+  --offset-38: #{rem(38)};
+  --offset-36: #{rem(36)};
+  --offset-32: #{rem(32)};
+  --offset-30: #{rem(30)};
+  --offset-28: #{rem(28)};
+  --offset-26: #{rem(26)};
+  --offset-25: #{rem(25)};
+  --offset-24: #{rem(24)};
+  --offset-23: #{rem(23)};
+  --offset-22: #{rem(22)};
+  --offset-20: #{rem(20)};
+  --offset-18: #{rem(18)};
+  --offset-16: #{rem(16)};
+  --offset-15: #{rem(15)};
+  --offset-14: #{rem(14)};
+  --offset-13: #{rem(13)};
+  --offset-12: #{rem(12)};
+  --offset-10: #{rem(10)};
+
+  @include tablet(){
+    --offset-240: #{rem(180)};
+    --offset-100: #{rem(40)};
+    --offset-80: #{rem(40)};
+    --offset-70: #{rem(40)};
+    --offset-56: #{rem(30)};
+    --offset-50: #{rem(34)};
+    --offset-49: #{rem(22)};
+    --offset-42: #{rem(40)};
+    --offset-36: #{rem(40)};
+    --offset-26: #{rem(18)};
+    --offset-25: #{rem(62)};
+    --offset-23: #{rem(12)};
+    --offset-22: #{rem(10)};
+    --offset-20: #{rem(18)};
+    --offset-13: #{rem(4)};
+  }
+}

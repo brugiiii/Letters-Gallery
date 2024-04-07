@@ -1,0 +1,234 @@
+.header {
+  & .logo {
+    @include hover(color $white-color $base-2);
+
+    display: inline-block;
+
+    padding-top: rem(21);
+    padding-bottom: rem(21);
+
+    font-size: rem(22);
+    line-height: calc(26.82 / 22);
+
+    @include tablet() {
+      padding-top: rem(22);
+    }
+  }
+
+  & .contacts {
+    display: flex;
+
+    @include tablet() {
+      display: none;
+    }
+  }
+
+  & .nav-list {
+    display: flex;
+    gap: rem(32);
+
+    & > li {
+      & > a {
+        @include hover(color $black-color $base-2);
+
+        padding-bottom: rem(8);
+
+        line-height: calc(19.5 / 16);
+        text-transform: uppercase;
+      }
+    }
+
+    & a {
+      display: inline-block;
+    }
+
+    & .menu-item__icon {
+      display: none;
+    }
+  }
+
+  & .nav-wrapper {
+    padding-bottom: rem(17);
+    border-bottom: rem(2) solid $base-5;
+
+    @include tablet() {
+      padding-bottom: rem(8);
+    }
+  }
+}
+
+.menu-item-has-children {
+  max-width: fit-content;
+  cursor: pointer;
+
+  &:hover {
+    & .sub-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  & li {
+    & button {
+      @include hover(text-decoration-color transparent $base-2, color $base-3 $base-2);
+
+      padding: rem(7) rem(47) rem(7) rem(9);
+      text-decoration: underline;
+    }
+  }
+
+  & li:first-child {
+    & button {
+      padding-top: rem(11);
+    }
+  }
+
+  & li:last-child {
+    & button {
+      padding-bottom: rem(25);
+    }
+  }
+
+  & > a {
+    pointer-events: none;
+  }
+}
+
+.sub-menu {
+  @include transition(opacity, visibility);
+
+  top: calc(100% + rem(9));
+  z-index: 2;
+
+  box-shadow: 0 0 rem(8) 0 #30211C1F;
+
+  opacity: 0;
+  visibility: hidden;
+
+  & button {
+    white-space: nowrap;
+  }
+}
+
+.header-wrapper {
+  color: $white-color;
+  background-color: $base-1;
+
+  & .contacts__item {
+    &:not(:last-child) {
+      position: relative;
+      padding-right: rem(12);
+      margin-right: rem(12);
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: rem(1);
+        height: calc(100% - rem(1));
+
+        background-color: $white-color;
+      }
+    }
+  }
+
+  & .contacts__link {
+    @include hover(fill $white-color $base-2, color $white-color $base-2);
+
+    gap: rem(6);
+
+    font-size: rem(18);
+    line-height: calc(21.94 / 18);
+
+  }
+}
+
+.header-container {
+  padding-top: rem(29);
+
+  letter-spacing: rem(-0.4);
+
+  @include tablet() {
+    padding-top: rem(11);
+  }
+}
+
+.main-nav {
+  position: relative;
+
+  @include tablet() {
+    display: none;
+  }
+}
+
+.nav-line {
+  position: absolute;
+  bottom: 0;
+
+  display: inline-block;
+  background-color: $base-1;
+
+  width: rem(53);
+  height: rem(2);
+
+  opacity: 0;
+
+  transition-property: opacity, left;
+  transition-duration: $duration;
+  transition-timing-function: $timing-function;
+}
+
+.tools-wrapper {
+  display: flex;
+  align-items: center;
+  gap: rem(20);
+
+  @include tablet() {
+    width: 100%;
+  }
+}
+
+.cart-button {
+  @include hover(fill $black-color $base-2);
+
+  @include tablet() {
+    margin-left: auto;
+  }
+
+  &.hidden {
+    & .card-button__price,
+    & .cart-count {
+      display: none;
+    }
+  }
+}
+
+.cart-button__wrapper {
+  padding-top: rem(1);
+  padding-right: rem(10);
+}
+
+.card-button__icon {
+  width: rem(28);
+  height: rem(28);
+}
+
+.card-button__price {
+  font-size: rem(15);
+  line-height: rem(18.29);
+
+  color: $base-1;
+}
+
+.cart-count {
+  font-family: "Inter", sans-serif;
+  background-color: $base-1;
+
+  width: rem(16);
+  height: rem(16);
+
+  pointer-events: none;
+}

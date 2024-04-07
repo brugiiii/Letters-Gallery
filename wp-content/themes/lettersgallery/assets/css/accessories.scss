@@ -1,0 +1,18 @@
+//UTILS
+@import "utils/breakpoints";
+@import "utils/functions";
+@import "utils/mixins";
+
+//BASE
+@import "base/variables";
+
+//VENDORS
+@import "vendors/skeleton";
+
+//COMPONENTS
+@import "components/heroSection";
+@import "components/home/gallerySection";
+
+.gallery {
+  padding-top: var(--offset-120);
+}

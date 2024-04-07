@@ -1,0 +1,30 @@
+.loader-wrapper {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.loader {
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, $base-1 94%, #0000) top/0.75rem 0.75rem no-repeat,
+  conic-gradient($base-1 10%, #ffffff1c);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 0.75rem), #000 0);
+
+  @include tablet(){
+    background: radial-gradient(farthest-side, $base-1 94%, #0000) top/0.5rem 0.5rem no-repeat,
+    conic-gradient($base-1 10%, #ffffff1c);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 0.5rem), #000 0);
+  }
+}
+
+@keyframes l13 {
+  100% {
+    transform: rotate(-1turn)
+  }
+}
+
+.overlay {
+  pointer-events: none;
+  opacity: 0;
+
+  transition: opacity 150ms ease-in-out;
+}

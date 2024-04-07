@@ -1,0 +1,357 @@
+.artists {
+  padding-top: var(--offset-240);
+}
+
+.artists-list {
+  margin-top: var(--offset-56);
+
+  & > .artists-list__item {
+    &:nth-child(1) {
+      display: flex;
+      gap: rem(22);
+
+      grid-column: 1 / 7;
+
+      @include tablet() {
+        display: block;
+      }
+
+      & .artists-list__thumb {
+        width: rem(330);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(236);
+          height: rem(336);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-start;
+
+        @include tablet() {
+          margin-top: rem(22);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: rem(215);
+
+      grid-column: 7 / -1;
+
+      @include tablet() {
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(576);
+        height: rem(430);
+
+        margin-bottom: rem(22);
+
+        @include tablet() {
+          width: rem(316);
+          height: rem(217);
+
+          margin-left: auto;
+        }
+      }
+
+      & .artists-list__name {
+        justify-content: flex-end;
+      }
+    }
+
+    &:nth-child(3) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-self: flex-start;
+      gap: rem(22);
+
+      grid-column: 1 / 7;
+
+      margin-top: rem(-104);
+
+      @include tablet() {
+        display: block;
+
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(290);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(178);
+          height: rem(263);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-end;
+
+        margin-top: rem(15);
+      }
+    }
+
+    &:nth-child(n) {
+      @include tablet() {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &:not(:has( .artists-list__wrapper)) + .artists-button {
+    display: none;
+  }
+}
+
+.artists-list__wrapper {
+  display: contents;
+
+  @include tablet() {
+    display: none;
+
+    grid-column: 1 / -1;
+
+    margin-top: rem(50);
+  }
+
+  & .artists-list__item {
+    &:nth-child(odd) {
+      grid-column: 7 / -1;
+    }
+
+    &:nth-child(even) {
+      grid-column: 1 / 7;
+    }
+
+    &:nth-child(6n + 1) {
+      display: flex;
+      gap: rem(22);
+
+      margin-top: rem(299);
+
+      @include tablet() {
+        display: block;
+
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(330);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(225);
+          height: rem(292);
+
+          margin-left: rem(59);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-start;
+
+        @include tablet(){
+          margin-left: rem(59);
+        }
+      }
+    }
+
+    &:nth-child(6n + 2) {
+      margin-top: rem(-243);
+
+      @include tablet() {
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(576);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(284);
+          height: rem(213);
+        }
+
+        margin-bottom: rem(22);
+      }
+    }
+
+    &:nth-child(6n + 3) {
+      display: flex;
+      flex-direction: row-reverse;
+      align-self: flex-start;
+      gap: rem(22);
+      margin-top: rem(70);
+
+      @include tablet() {
+        display: block;
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(290);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(220);
+          height: rem(286);
+
+          margin-left: auto;
+          margin-right: rem(14.4);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-end;
+        justify-content: flex-end;
+
+        margin-top: rem(22);
+        margin-right: rem(14.4);
+      }
+    }
+
+    &:nth-child(6n + 4) {
+      display: flex;
+      gap: rem(22);
+
+      grid-column: 1 / 7;
+
+      @include tablet() {
+        display: block;
+
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(330);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(236);
+          height: rem(336);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-start;
+
+        @include tablet() {
+          margin-top: rem(22);
+        }
+      }
+    }
+
+    &:nth-child(6n + 5) {
+      margin-top: rem(215);
+
+      grid-column: 7 / -1;
+
+      @include tablet() {
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(576);
+        height: rem(430);
+
+        margin-bottom: rem(22);
+
+        @include tablet() {
+          width: rem(316);
+          height: rem(217);
+
+          margin-left: auto;
+        }
+      }
+
+      & .artists-list__name {
+        justify-content: flex-end;
+      }
+    }
+
+    &:nth-child(6n + 6) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-self: flex-start;
+      gap: rem(22);
+
+      grid-column: 1 / 7;
+
+      margin-top: rem(-104);
+
+      @include tablet() {
+        display: block;
+
+        margin-top: rem(50);
+      }
+
+      & .artists-list__thumb {
+        width: rem(290);
+        height: rem(430);
+
+        @include tablet() {
+          width: rem(178);
+          height: rem(263);
+        }
+      }
+
+      & .artists-list__name {
+        align-self: flex-end;
+
+        margin-top: rem(15);
+      }
+    }
+
+    &:first-child {
+      @include tablet() {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.artists-list__name {
+  gap: rem(12);
+
+  @include tablet() {
+    font-size: rem(18);
+    line-height: rem(21.94);
+  }
+}
+
+.artists-list__icon {
+  width: rem(17);
+  height: rem(17);
+}
+
+.artists-button {
+  display: none;
+
+  max-width: fit-content;
+
+  margin: rem(50) auto 0;
+  padding: rem(9) rem(41);
+  border: rem(1) solid $black-color;
+
+  font-size: rem(18);
+  line-height: rem(21.94);
+
+  @include tablet() {
+    display: block;
+  }
+}
+
+.artists-button.active .more {
+  display: none;
+}
+
+.artists-button:not(.active) .less {
+  display: none;
+}

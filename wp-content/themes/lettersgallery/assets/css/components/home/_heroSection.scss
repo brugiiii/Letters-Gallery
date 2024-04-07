@@ -1,0 +1,164 @@
+.hero {
+  padding-top: rem(40);
+
+  @include tablet() {
+    padding-top: rem(30);
+  }
+
+  & .socials {
+    display: flex;
+    gap: rem(32);
+
+    @include tablet() {
+      gap: rem(12);
+    }
+  }
+
+  & .socials__link {
+    @include hover(fill $base-2 $base-1)
+  }
+
+  & .socials__icon {
+    width: rem(36);
+    height: rem(36);
+  }
+}
+
+.hero-container {
+  padding-left: rem(150);
+
+  @include tablet() {
+    padding-left: rem(18);
+  }
+}
+
+.hero-wrapper {
+  display: flex;
+  gap: rem(42);
+
+  @include tablet() {
+    display: block;
+  }
+}
+
+.hero-title {
+  margin-top: rem(50);
+
+  @include tablet() {
+    margin-top: rem(30);
+  }
+}
+
+.hero-text {
+  margin-top: rem(22);
+
+  @include tablet() {
+    max-width: rem(326);
+
+    margin-top: rem(12);
+  }
+}
+
+.hero-text br {
+  @include tablet() {
+    display: none;
+  }
+}
+
+.hero-button {
+  @include hover(color $black-color $white-color, background-color transparent $base-1, fill $black-color $white-color);
+
+  width: fit-content;
+  gap: rem(10);
+
+  margin-top: rem(56);
+
+  padding: rem(11) rem(51);
+  border: rem(1) solid $black-color;
+  border-radius: rem(2);
+
+  @include tablet() {
+    margin-top: rem(42);
+    padding: rem(11) rem(41);
+  }
+}
+
+.hero-button__icon {
+  width: rem(17);
+  height: rem(17);
+}
+
+.hero-gallery {
+  width: rem(620);
+
+  padding-right: rem(70);
+
+  @include tablet() {
+    width: rem(286);
+
+    padding-right: 0;
+    margin: rem(50) auto 0;
+  }
+}
+
+.hero-gallery__item {
+  height: rem(666);
+
+  @include tablet() {
+    height: rem(380);
+  }
+}
+
+.hero-gallery__price {
+  position: absolute;
+  right: rem(22);
+  bottom: rem(22);
+
+  padding: rem(3) rem(61);
+
+  background-color: $base-6;
+
+  mix-blend-mode: difference;
+
+  @include tablet(){
+    right: rem(12);
+    bottom: rem(12);
+
+    padding: rem(3) rem(32);
+  }
+}
+
+.gallery-wrapper__button {
+  bottom: rem(84);
+
+  stroke: $black-color;
+
+  @include tablet(){
+    bottom: rem(28);
+  }
+
+  &.prev {
+    right: calc(100% + rem(12));
+
+    @include tablet(){
+      right: calc(100% - rem(6));
+    }
+  }
+
+  &.next {
+    left: calc(100% + rem(12));
+
+    @include tablet(){
+      left: calc(100% - rem(6));
+    }
+  }
+
+  &:not(.swiper-button-disabled) {
+    @include hover(stroke $black-color $base-2);
+  }
+}
+
+.gallery-wrapper__icon {
+  width: rem(54);
+  height: rem(54);
+}

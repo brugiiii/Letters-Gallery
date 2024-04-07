@@ -1,0 +1,23 @@
+.breadcrumb {
+  gap: rem(12);
+
+  font-family: "Inter", sans-serif;
+}
+
+.breadcrumb__item {
+  @include tablet(){
+    font-size: rem(12);
+    line-height: rem(14.52);
+  }
+
+  &:not(.current) {
+    color: $base-10;
+  }
+}
+
+.separator {
+  width: rem(17);
+  height: rem(9);
+
+  fill: $base-10;
+}
