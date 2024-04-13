@@ -85,7 +85,7 @@
   }
 
   & .footer-inner:nth-child(2) {
-    @include tablet(){
+    @include tablet() {
       margin-top: rem(22);
     }
   }
@@ -146,6 +146,28 @@
 .footer-form {
   height: rem(52);
   margin-top: var(--offset-14);
+
+  &.success {
+    pointer-events: none;
+
+    & .footer-form__icon {
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    & .footer-form__success-icon {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    & .footer-form__button {
+      background-color: $base-16;
+    }
+  }
+
+  &.loading {
+    & .footer-form__button {
+      background-color: $base-17;
+    }
+  }
 }
 
 .footer-form__input {
@@ -165,12 +187,23 @@
   width: rem(44);
   height: rem(44);
 
-  fill: $white-color
+  & svg {
+    @include transition(transform);
+  }
 }
 
 .footer-form__icon {
   width: rem(27);
   height: rem(12);
+  transform: translate(-50%, -50%);
+  fill: $white-color;
+}
+
+.footer-form__success-icon {
+  width: rem(20);
+  height: rem(16);
+  transform: translate(-50%, -50%) scale(0);
+  stroke: $white-color;
 }
 
 .copyright {
@@ -181,7 +214,7 @@
 .footer-link {
   @include hover(color $base-7 $base-2);
 
-  @include tablet(){
+  @include tablet() {
     font-size: rem(16);
     line-height: rem(19.5);
   }

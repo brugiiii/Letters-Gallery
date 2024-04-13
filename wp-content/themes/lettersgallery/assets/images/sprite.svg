@@ -66,5 +66,8 @@
         <symbol id="arrow-down" viewBox="0 0 52 32">
             <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.9091" d="M49.455 2.909l-23.273 26.182-23.273-26.182"></path>
         </symbol>
+        <symbol id="success" viewBox="0 0 37 32">
+            <path fill="transparent" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.3684" d="M1.684 10.947l14.035 17.684 19.649-26.947"></path>
+        </symbol>
     </defs>
 </svg>

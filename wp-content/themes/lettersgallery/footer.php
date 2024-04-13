@@ -18,9 +18,12 @@ $privacy_policy_id = pll_get_post(3, $current_lang);
                                placeholder="<?= translate_and_output("email"); ?>" name="email" required/>
                         <button class="position-absolute top-50 translate-middle-y border-0 rounded-circle footer-form__button"
                                 type="submit">
-                            <svg class="position-absolute top-50 start-50 translate-middle footer-form__icon" width="27"
+                            <svg class="position-absolute top-50 start-50 footer-form__icon" width="27"
                                  height="12">
                                 <use href="<?php get_image('sprite.svg#arrow-right'); ?>"></use>
+                            </svg>
+                            <svg class="position-absolute top-50 start-50 footer-form__success-icon" width="20" height="16">
+                                <use href="<?php get_image('sprite.svg#success'); ?>"></use>
                             </svg>
                         </button>
                     </form>
