@@ -228,6 +228,38 @@ scrollTop.on("click", scrollToTop);
 
 /***/ }),
 
+/***/ "./assets/js/main/zoom.js":
+/*!********************************!*\
+  !*** ./assets/js/main/zoom.js ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _refs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./refs */ "./assets/js/main/refs.js");
+
+var bodyEl = _refs__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl;
+function zoom(e) {
+  var zoomer = e.currentTarget;
+  var offsetX, offsetY;
+  if (e.offsetX !== undefined) {
+    offsetX = e.offsetX;
+  } else {
+    offsetX = e.touches[0].pageX;
+  }
+  if (e.offsetY !== undefined) {
+    offsetY = e.offsetY;
+  } else {
+    offsetY = e.touches[0].pageY;
+  }
+  var x = offsetX / zoomer.offsetWidth * 100;
+  var y = offsetY / zoomer.offsetHeight * 100;
+  zoomer.style.backgroundPosition = x + '% ' + y + '%';
+}
+bodyEl.on("mousemove", ".zoom-js", zoom);
+
+/***/ }),
+
 /***/ "./assets/js/utils/utils.js":
 /*!**********************************!*\
   !*** ./assets/js/utils/utils.js ***!
@@ -5086,7 +5118,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_activateCategory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main/activateCategory */ "./assets/js/main/activateCategory.js");
 /* harmony import */ var _main_burger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/burger */ "./assets/js/main/burger.js");
 /* harmony import */ var _main_formSubmit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/formSubmit */ "./assets/js/main/formSubmit.js");
-/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../css/main.scss */ "./assets/css/main.scss");
+/* harmony import */ var _main_zoom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main/zoom */ "./assets/js/main/zoom.js");
+/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../css/main.scss */ "./assets/css/main.scss");
+
 
 
 

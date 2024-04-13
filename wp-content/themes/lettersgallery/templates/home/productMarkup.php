@@ -1,5 +1,7 @@
 <?php
-$image_id = get_post_thumbnail_id();
+$post_thumbnail_id = get_post_thumbnail_id();
+$image_id = $post_thumbnail_id ?: 5;
+$image_url = wp_get_attachment_image_src($image_id, 'full');
 $size = get_field("size");
 $product_id = get_the_ID();
 $current_lang = pll_current_language();
@@ -18,14 +20,8 @@ if (WC()->cart) {
 
 <div class="products__item position-relative">
     <a class="products__link" href="<?php the_permalink(); ?>">
-        <div class="products__thumb">
-            <?php
-            if ($image_id) {
-                echo wp_get_attachment_image($image_id, 'full', false, array('class' => 'products__image'));
-            } else {
-                echo wp_get_attachment_image(5, 'full', false, array('class' => 'products__image'));
-            }
-            ?>
+        <div class="products__thumb zoom-js" style="background-image: url(<?= $image_url[0]; ?>)">
+            <?= wp_get_attachment_image($image_id, 'full', false, array('class' => 'products__image')); ?>
         </div>
         <h3 class="h5 fw-semibold  mb-0 products__title">
             <?php the_title(); ?>

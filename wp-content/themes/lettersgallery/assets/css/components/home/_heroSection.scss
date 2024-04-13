@@ -106,22 +106,22 @@
 .hero-gallery__item {
   height: rem(666);
   overflow: hidden;
+  background-position: 50% 50%;
 
   @include tablet() {
     height: rem(380);
   }
 
   @media (hover: hover) {
-    &:hover,
-    &:focus {
+    &:hover {
       & img {
-        transform: scale($scale);
+        opacity: 0;
       }
     }
   }
 
   & img {
-    @include transition(transform);
+    @include transition(opacity);
   }
 }
 

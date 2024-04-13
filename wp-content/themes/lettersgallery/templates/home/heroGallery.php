@@ -19,17 +19,16 @@ if ($query->have_posts()) {
             <?php
             while ($query->have_posts()) {
                 $query->the_post();
+                $post_thumbnail_id = get_post_thumbnail_id();
+                $image_id = $post_thumbnail_id ?: 5;
+                $image_url = wp_get_attachment_image_src($image_id, 'full');
+
                 global $product;
                 ?>
                 <div class="swiper-slide">
-                    <a class="position-relative d-block hero-gallery__item" href="<?= get_permalink(); ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('full');
-                        } else {
-                            echo wp_get_attachment_image(5, 'full', false, array('class' => 'woocommerce-placeholder'));
-                        }
-                        ?>
+                    <a class="position-relative d-block hero-gallery__item zoom-js" href="<?= get_permalink(); ?>"
+                       style="background-image: url(<?= $image_url[0]; ?>)">
+                        <?= wp_get_attachment_image($image_id, 'full', false, array('class' => 'products__image')); ?>
                         <span class="position-absolute fw-medium mb-0 text-white h4 hero-gallery__price"><?= $product->get_price_html(); ?></span>
                     </a>
                 </div>

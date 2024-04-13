@@ -1184,6 +1184,7 @@ button.swiper-pagination-bullet {
 .hero-gallery__item {
   height: 41.625rem;
   overflow: hidden;
+  background-position: 50% 50%;
 }
 @media (max-width: 1024px) {
   .hero-gallery__item {
@@ -1191,16 +1192,13 @@ button.swiper-pagination-bullet {
   }
 }
 @media (hover: hover) {
-  .hero-gallery__item:hover img, .hero-gallery__item:focus img {
-    -webkit-transform: scale(1.12);
-            transform: scale(1.12);
+  .hero-gallery__item:hover img {
+    opacity: 0;
   }
 }
 .hero-gallery__item img {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .hero-gallery__price {
@@ -1430,10 +1428,12 @@ button.swiper-pagination-bullet {
     margin-left: auto;
   }
 }
-.artists-list > .artists-list__item:nth-child(2) .artists-list__name {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+@media (max-width: 1024px) {
+  .artists-list > .artists-list__item:nth-child(2) .artists-list__name {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 .artists-list > .artists-list__item:nth-child(3) {
   display: -webkit-box;
@@ -1642,10 +1642,12 @@ button.swiper-pagination-bullet {
     margin-left: auto;
   }
 }
-.artists-list__wrapper .artists-list__item:nth-child(6n+5) .artists-list__name {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+@media (max-width: 1024px) {
+  .artists-list__wrapper .artists-list__item:nth-child(6n+5) .artists-list__name {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 .artists-list__wrapper .artists-list__item:nth-child(6n+6) {
   display: -webkit-box;
@@ -1690,21 +1692,18 @@ button.swiper-pagination-bullet {
   }
 }
 
-@media (hover: hover) {
-  .artists-list__item:hover img {
-    -webkit-transform: scale(1.12);
-            transform: scale(1.12);
-  }
-}
-
 .artists-list__thumb {
   overflow: hidden;
+  background-position: 50% 50%;
 }
 .artists-list__thumb img {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+@media (hover: hover) {
+  .artists-list__thumb:hover img {
+    opacity: 0;
+  }
 }
 
 .artists-list__name {
@@ -1803,14 +1802,11 @@ button.swiper-pagination-bullet {
     color: #FFF;
     background-color: #3F352C;
   }
-  .products__link:hover .products__image, .products__link:focus .products__image {
-    -webkit-transform: scale(1.12);
-            transform: scale(1.12);
-  }
 }
 
 .products__thumb {
   height: 31.25rem;
+  background-position: 50% 50%;
   overflow: hidden;
 }
 @media (max-width: 1024px) {
@@ -1818,12 +1814,15 @@ button.swiper-pagination-bullet {
     height: 13rem;
   }
 }
+@media (hover: hover) {
+  .products__thumb:hover .products__image, .products__thumb:focus .products__image {
+    opacity: 0;
+  }
+}
 
 .products__image {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .products__title {

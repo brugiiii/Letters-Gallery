@@ -58,26 +58,32 @@
         color: $white-color;
         background-color: $base-1;
       }
-
-      & .products__image {
-        transform: scale($scale);
-      }
     }
   }
 }
 
 .products__thumb {
   height: rem(500);
+  background-position: 50% 50%;
 
   overflow: hidden;
 
   @include tablet() {
     height: rem(208);
   }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      & .products__image {
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .products__image {
-  @include transition(transform);
+  @include transition(opacity);
 }
 
 .products__title {

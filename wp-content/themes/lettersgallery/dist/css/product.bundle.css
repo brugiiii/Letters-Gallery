@@ -963,19 +963,17 @@ button.swiper-pagination-bullet {
 
 .hero-slide {
   height: 31.25rem;
+  background-position: 50% 50%;
   overflow: hidden;
 }
 @media (hover: hover) {
   .hero-slide:hover img {
-    -webkit-transform: scale(1.12);
-            transform: scale(1.12);
+    opacity: 0;
   }
 }
 .hero-slide img {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .product {
@@ -1134,14 +1132,11 @@ button.swiper-pagination-bullet {
     color: #FFF;
     background-color: #3F352C;
   }
-  .products__link:hover .products__image, .products__link:focus .products__image {
-    -webkit-transform: scale(1.12);
-            transform: scale(1.12);
-  }
 }
 
 .products__thumb {
   height: 31.25rem;
+  background-position: 50% 50%;
   overflow: hidden;
 }
 @media (max-width: 1024px) {
@@ -1149,12 +1144,15 @@ button.swiper-pagination-bullet {
     height: 13rem;
   }
 }
+@media (hover: hover) {
+  .products__thumb:hover .products__image, .products__thumb:focus .products__image {
+    opacity: 0;
+  }
+}
 
 .products__image {
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .products__title {

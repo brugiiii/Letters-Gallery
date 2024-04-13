@@ -8,18 +8,19 @@
 
 .hero-slide {
   height: rem(500);
+  background-position: 50% 50%;
 
   overflow: hidden;
 
   @media (hover: hover) {
     &:hover {
       & img {
-        transform: scale($scale);
+        opacity: 0;
       }
     }
   }
 
   & img {
-    @include transition(transform);
+    @include transition(opacity);
   }
 }

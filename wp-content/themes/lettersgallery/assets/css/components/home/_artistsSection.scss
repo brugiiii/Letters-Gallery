@@ -59,7 +59,9 @@
       }
 
       & .artists-list__name {
-        justify-content: flex-end;
+        @include tablet() {
+          justify-content: flex-end;
+        }
       }
     }
 
@@ -271,7 +273,9 @@
       }
 
       & .artists-list__name {
-        justify-content: flex-end;
+        @include tablet() {
+          justify-content: flex-end;
+        }
       }
     }
 
@@ -317,21 +321,20 @@
   }
 }
 
-.artists-list__item {
+.artists-list__thumb {
+  overflow: hidden;
+  background-position: 50% 50%;
+
+  & img {
+    @include transition(opacity);
+  }
+
   @media (hover: hover) {
     &:hover {
       & img {
-        transform: scale($scale);
+        opacity: 0;
       }
     }
-  }
-}
-
-.artists-list__thumb {
-  overflow: hidden;
-
-  & img {
-    @include transition(transform);
   }
 }
 
