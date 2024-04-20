@@ -323,6 +323,8 @@
   display: flex;
   overflow: hidden;
   background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
 
   & img {
     @include transition(opacity);
