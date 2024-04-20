@@ -7,14 +7,22 @@
 @import "base/variables";
 
 .legal {
-  padding-top: var(--offset-40);
+  padding-top: rem(50);
   padding-bottom: var(--offset-240);
 
   font-family: "Inter", sans-serif;
+
+  @include tablet(){
+    padding-top: rem(30);
+  }
 }
 
 .title {
-  margin-top: var(--offset-100);
+  margin-top:rem(50);
+
+  @include tablet(){
+    padding-top: rem(40);
+  }
 }
 
 .legal-wrapper {

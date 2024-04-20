@@ -1,5 +1,7 @@
 <section class="basket">
     <div class="container">
+       <?= get_template_part('templates/breadcrumbs'); ?>
+
         <h2 class="h2 section-title mb-0">
             <?= the_field("title"); ?>
         </h2>

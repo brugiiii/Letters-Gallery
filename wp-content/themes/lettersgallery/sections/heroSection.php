@@ -5,6 +5,8 @@ $gallery = get_field("hero_gallery");
 <section class="hero">
     <div class="container">
         <?php
+        get_template_part('templates/breadcrumbs');
+
         if ($gallery || is_singular("product")) {
             ?>
             <div class="swiper hero-swiper">
@@ -32,7 +34,7 @@ $gallery = get_field("hero_gallery");
             </div>
             <?php
         }
-        get_template_part('templates/breadcrumbs');
+
         ?>
     </div>
 </section>

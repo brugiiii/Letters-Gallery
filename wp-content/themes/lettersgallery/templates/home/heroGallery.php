@@ -14,7 +14,7 @@ $args = array(
 $query = new WP_Query($args);
 if ($query->have_posts()) {
     ?>
-    <div class="swiper hero-swiper">
+    <div class="swiper hero-swiper h-100">
         <div class="swiper-wrapper">
             <?php
             while ($query->have_posts()) {

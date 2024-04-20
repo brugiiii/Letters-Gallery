@@ -1,7 +1,7 @@
 <section class="hero">
-    <div class="container hero-container">
+    <div class="container p-0">
         <div class="hero-wrapper">
-            <div class="align-self-center">
+            <div class="hero-wrapper__item position-relative align-self-start">
                 <?= get_template_part('templates/socials'); ?>
                 <h1 class="h1 mb-0 hero-title">
                     <?= the_field('hero_title'); ?>
@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="hero-gallery">
-                <div class="gallery-wrapper position-relative">
+                <div class="gallery-wrapper position-relative h-100">
                     <?= get_template_part('templates/home/heroGallery'); ?>
                     <button class="gallery-wrapper__button position-absolute border-0 p-0 bg-transparent prev"
                             type="button">

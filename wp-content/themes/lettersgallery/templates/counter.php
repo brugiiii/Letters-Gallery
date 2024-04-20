@@ -1,5 +1,8 @@
 <?php
-$count = $args["count"] ?? "1"
+$count = $args["count"] ?? "1";
+$product_id = get_the_ID();
+$product_class = get_the_terms($product_id, 'class');
+if ($product_class[0]->slug === "painting") return
 ?>
 
 <div class="counter">

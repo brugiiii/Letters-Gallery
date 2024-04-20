@@ -54,13 +54,9 @@
   @media (hover: hover) {
     &:hover {
       & img {
-        transform: scale($scale);
+        opacity: 0;
       }
     }
-  }
-
-  & img {
-    @include transition(transform);
   }
 }
 

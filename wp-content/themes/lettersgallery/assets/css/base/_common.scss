@@ -51,11 +51,11 @@ body {
 }
 
 .h2 {
-  font-size: rem(80);
-  line-height: rem(97.52);
+  font-size: rem(62);
+  line-height: rem(75.58);
 
   @include tablet() {
-    font-size: rem(40);
+    font-size: rem(32);
     line-height: rem(48.76);
   }
 }

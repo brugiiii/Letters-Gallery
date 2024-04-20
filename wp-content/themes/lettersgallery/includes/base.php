@@ -40,6 +40,11 @@ function enqueue_scripts_and_styles()
         wp_enqueue_style('product-style', get_template_directory_uri() . '/dist/css/product.bundle.css');
     }
 
+    if (is_page_template('pages/checkout.php')) {
+        wp_enqueue_script('checkout-js', get_template_directory_uri() . '/dist/js/checkout.bundle.js', array('jquery'), null, true);
+        wp_enqueue_style('checkout-style', get_template_directory_uri() . '/dist/css/checkout.bundle.css');
+    }
+
     if (is_404()) {
         wp_enqueue_script('404-js', get_template_directory_uri() . '/dist/js/404.bundle.js', array('jquery'), null, true);
         wp_enqueue_style('404-style', get_template_directory_uri() . '/dist/css/404.bundle.css');

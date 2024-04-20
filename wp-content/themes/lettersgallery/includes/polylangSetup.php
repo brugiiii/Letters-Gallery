@@ -26,8 +26,6 @@ $strings_to_translate = array(
     "email" => "Email address",
     "accessories" => "Accessories You May Like",
     "all_accessories" => "All accessories",
-    "position" => "position",
-    "positions" => "positions",
     "item" => "Item",
     "summary" => "Summary :",
     "read_more" => "read more",
@@ -42,6 +40,10 @@ $strings_to_translate = array(
     "return_to_main" => "Return to the main page",
     "view_all_artists" => "view all artists",
     "show_less_artists" => "show less artists",
+    "artwork_details" => "artwork details",
+    "accessory_details" => "accessory details",
+    "painting" => "Painting",
+    "accessory" => "Accessory"
 );
 
 if (function_exists("pll_register_string")) {

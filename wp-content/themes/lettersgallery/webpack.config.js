@@ -12,6 +12,7 @@ module.exports = {
         accessories: "./assets/js/accessories.js",
         basket: "./assets/js/basket.js",
         legal: "./assets/js/legal.js",
+        checkout: "./assets/js/checkout.js",
         "404": "./assets/js/404.js",
     },
     output: {

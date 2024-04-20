@@ -1,6 +1,7 @@
 <?php
 $home_page_id = pll_get_post(11, pll_current_language());
 $class = $args["class"] ?? 62;
+$breadcrumbs = $args["breadcrumbs"] ?? false;
 
 $params = array(
     array(
@@ -14,6 +15,7 @@ $params = array(
 
 <section class="gallery" id="gallery">
     <div class="container">
+        <?php if ($breadcrumbs) get_template_part('templates/breadcrumbs') ?>
         <h2 class="h2 section-title mb-0">
             <?= the_field("gallery_title"); ?>
         </h2>

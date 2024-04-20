@@ -1,10 +1,4 @@
 .hero {
-  padding-top: rem(40);
-
-  @include tablet() {
-    padding-top: rem(30);
-  }
-
   & .socials {
     display: flex;
     gap: rem(32);
@@ -25,21 +19,29 @@
 }
 
 .hero-container {
-  padding-left: rem(150);
-
   overflow-x: hidden;
-
-  @include tablet() {
-    padding-left: rem(18);
-  }
 }
 
 .hero-wrapper {
   display: flex;
   gap: rem(42);
+  height: 100vh;
+  padding: rem(40) rem(80) var(--offset-240)  rem(150);
 
   @include tablet() {
     display: block;
+    height: auto;
+    padding-top: rem(30);
+    padding-left: rem(18);
+    padding-right: rem(16);
+  }
+}
+
+.hero-wrapper__item {
+  top: 7%;
+
+  @include tablet(){
+    top: unset;
   }
 }
 
@@ -104,7 +106,7 @@
 }
 
 .hero-gallery__item {
-  height: rem(666);
+  height: 100%;
   overflow: hidden;
   background-position: 50% 50%;
 

@@ -10,7 +10,16 @@ $home_page = pll_get_post(11, $current_lang);
     <svg class="separator" width="17" height="9">
         <use href="<?php get_image('sprite.svg#arrow-right'); ?>"></use>
     </svg>
-    <span class="p8 text-uppercase current breadcrumb__item">
-        <?php the_title() ?>
+    <span class="p8 current text-uppercase breadcrumb__item">
+        <?php
+        if (is_singular("product")) {
+            $product_id = get_the_ID();
+            $product_class = get_the_terms($product_id, 'class');
+
+            echo translate_and_output($product_class[0]->slug === "painting" ? "artwork_details" : "accessory_details");
+        } else {
+            the_title();
+        }
+        ?>
     </span>
 </div>

@@ -10,9 +10,20 @@
 @import "vendors/skeleton";
 
 //COMPONENTS
-@import "components/heroSection";
 @import "components/home/gallerySection";
 
 .gallery {
-  padding-top: var(--offset-120);
+  padding-top: rem(50);
+
+  @include tablet(){
+    padding-top: rem(30);
+  }
+}
+
+.section-title {
+  margin-top: rem(50);
+
+  @include tablet(){
+    margin-top: rem(40);
+  }
 }

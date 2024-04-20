@@ -1,4 +1,6 @@
 <?php
+$link_visible = $args["link_visible"] ?? false;
+
 $current_lang = pll_current_language();
 $checkout_id = pll_get_post(8, $current_lang);
 
@@ -35,8 +37,14 @@ $shipping_total = WC()->cart->get_shipping_total();
                 <?= wc_price($total_products + $shipping_total); ?>
             </span>
         </h3>
-        <a class="summary-checkout d-block text-center fw-bold p3" href="<?= get_permalink($checkout_id); ?>" class="">
-            <?= translate_and_output("checkout"); ?>
-        </a>
+        <?php
+        if($link_visible){
+            ?>
+            <a class="summary-checkout d-block text-center fw-bold p3" href="<?= get_permalink($checkout_id); ?>" class="">
+                <?= translate_and_output("checkout"); ?>
+            </a>
+        <?php
+        }
+        ?>
     </div>
 </div>

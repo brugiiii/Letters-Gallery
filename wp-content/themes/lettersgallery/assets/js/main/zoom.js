@@ -2,10 +2,26 @@ import refs from "./refs"
 
 const {bodyEl} = refs
 
-function zoom(e){
-    const zoomer = e.currentTarget;
-    let offsetX, offsetY;
+let animationFrame
+let offsetX
+let offsetY
+let currentTarget
 
+function handleMouseEnter(e) {
+    currentTarget = e.currentTarget
+
+    currentTarget.addEventListener("mousemove", handleMouseMove)
+    animationFrame = requestAnimationFrame(animateBackground)
+}
+
+function handleMouseLeave(e) {
+    currentTarget = e.currentTarget
+    currentTarget.removeEventListener("mousemove", handleMouseMove)
+
+    window.cancelAnimationFrame(animationFrame)
+}
+
+function handleMouseMove(e){
     if (e.offsetX !== undefined) {
         offsetX = e.offsetX;
     } else {
@@ -17,10 +33,15 @@ function zoom(e){
     } else {
         offsetY = e.touches[0].pageY;
     }
-
-    const x = offsetX / zoomer.offsetWidth * 100;
-    const y = offsetY / zoomer.offsetHeight * 100;
-    zoomer.style.backgroundPosition = x + '% ' + y + '%';
 }
 
-bodyEl.on("mousemove", ".zoom-js", zoom)
+function animateBackground() {
+    animationFrame = requestAnimationFrame(animateBackground)
+
+    const x = offsetX / currentTarget.offsetWidth * 100;
+    const y = offsetY / currentTarget.offsetHeight * 100;
+    currentTarget.style.backgroundPosition = x + '% ' + y + '%';
+}
+
+bodyEl.on("mouseenter", ".zoom-js", handleMouseEnter)
+bodyEl.on("mouseleave", ".zoom-js", handleMouseLeave)

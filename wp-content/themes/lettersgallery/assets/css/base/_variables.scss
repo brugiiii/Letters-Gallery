@@ -16,6 +16,7 @@ $base-14: #838282;
 $base-15: #898989;
 $base-16: #307D3C;
 $base-17: #707070;
+$base-18: #F9F6F2;
 
 $loader-background-color: #EEEEEE;
 $loader-highlight-color: #DEDEDE;
@@ -29,7 +30,7 @@ $timing-function: ease-in-out;
 $scale: 1.12;
 
 :root {
-  --offset-240: #{rem(240)};
+  --offset-240: #{rem(120)};
   --offset-120: #{rem(120)};
   --offset-100: #{rem(100)};
   --offset-80: #{rem(80)};
@@ -63,7 +64,7 @@ $scale: 1.12;
   --offset-10: #{rem(10)};
 
   @include tablet(){
-    --offset-240: #{rem(180)};
+    --offset-240: #{rem(120)};
     --offset-100: #{rem(40)};
     --offset-80: #{rem(40)};
     --offset-70: #{rem(40)};

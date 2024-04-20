@@ -3,6 +3,8 @@ $quantity = $args["quantity"] ?? 1;
 $image_id = get_post_thumbnail_id();
 $total_price = $quantity * get_post_meta(get_the_ID(), "_regular_price", true);
 $product_size = get_field("size");
+$product_id = get_the_ID();
+$product_class = get_the_terms($product_id, 'class');
 ?>
 
 <li class="basket-products__item position-relative">
@@ -26,8 +28,12 @@ $product_size = get_field("size");
         </a>
         <div class="d-flex flex-column flex-grow-1">
             <h3 class="h4 mb-0 fw-semibold basket-products__title">
-                <?php the_title(); ?>
+                <?= translate_and_output($product_class[0]->slug === "painting" ? "painting" : "accessory"); ?>
             </h3>
+
+            <p class="basket-product__name">
+                <?php the_title(); ?>
+            </p>
 
             <?php
             if ($product_size) {

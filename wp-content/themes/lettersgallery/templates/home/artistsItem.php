@@ -15,12 +15,9 @@ if ($term) {
             }
             ?>
         </button>
-        <button class="h5 fw-medium text-uppercase mb-0 d-flex align-items-center artists-list__name bg-transparent p-0 border-0"
+        <button class="h5 fw-medium text-uppercase mb-0 artists-list__name bg-transparent p-0 border-0"
                 data-cat-id="<?= $term->term_id; ?>">
-            <?php echo $term->name; ?>
-            <svg class="artists-list__icon" width="17" height="17">
-                <use href="<?php get_image('sprite.svg#arrow-right-bottom'); ?>"></use>
-            </svg>
+            <?= $term->name; ?>
         </button>
     </div>
     <?php

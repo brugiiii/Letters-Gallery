@@ -1,9 +1,17 @@
 .hero {
-  padding-top: var(--offset-70);
+  padding-top: rem(50);
+
+  @include tablet() {
+    padding-top: rem(30);
+  }
 }
 
 .hero-swiper {
-  margin-bottom: rem(50);
+  margin-top: rem(50);
+
+  @include mobile(){
+    margin-top: rem(40);
+  }
 }
 
 .hero-slide {

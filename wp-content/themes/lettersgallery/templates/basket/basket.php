@@ -4,7 +4,7 @@ $cart = WC()->cart;
 if (!$cart->is_empty()) {
     get_template_part('templates/basket/products');
 
-    get_template_part('templates/basket/summary');
+    get_template_part('templates/basket/summary', null, array("link_visible" => true));
 } else {
     ?>
     <div class="empty-basket text-center">

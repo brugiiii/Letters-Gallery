@@ -98,7 +98,7 @@
   @include transition(opacity, visibility);
 
   top: calc(100% + rem(9));
-  z-index: 2;
+  z-index: 101;
 
   box-shadow: 0 0 rem(8) 0 #30211C1F;
 

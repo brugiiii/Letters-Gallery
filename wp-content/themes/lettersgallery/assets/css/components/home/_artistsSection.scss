@@ -28,10 +28,6 @@
 
       & .artists-list__name {
         align-self: flex-start;
-
-        @include tablet() {
-          margin-top: rem(22);
-        }
       }
     }
 
@@ -48,8 +44,6 @@
         width: rem(576);
         height: rem(430);
 
-        margin-bottom: rem(22);
-
         @include tablet() {
           width: rem(316);
           height: rem(217);
@@ -59,8 +53,10 @@
       }
 
       & .artists-list__name {
+        margin-top: rem(22);
+
         @include tablet() {
-          justify-content: flex-end;
+          margin-left: auto;
         }
       }
     }
@@ -179,8 +175,10 @@
           width: rem(284);
           height: rem(213);
         }
+      }
 
-        margin-bottom: rem(22);
+      & .artists-list__name {
+        margin-top: rem(22);
       }
     }
 
@@ -215,6 +213,10 @@
 
         margin-top: rem(22);
         margin-right: rem(14.4);
+
+        @include tablet(){
+          margin-left: auto;
+        }
       }
     }
 
@@ -242,10 +244,6 @@
 
       & .artists-list__name {
         align-self: flex-start;
-
-        @include tablet() {
-          margin-top: rem(22);
-        }
       }
     }
 
@@ -262,8 +260,6 @@
         width: rem(576);
         height: rem(430);
 
-        margin-bottom: rem(22);
-
         @include tablet() {
           width: rem(316);
           height: rem(217);
@@ -273,8 +269,10 @@
       }
 
       & .artists-list__name {
+        margin-top: rem(22);
+
         @include tablet() {
-          justify-content: flex-end;
+          margin-left: auto;
         }
       }
     }
@@ -322,6 +320,7 @@
 }
 
 .artists-list__thumb {
+  display: flex;
   overflow: hidden;
   background-position: 50% 50%;
 
@@ -339,17 +338,11 @@
 }
 
 .artists-list__name {
-  gap: rem(12);
-
   @include tablet() {
+    margin-top: rem(22) !important;
     font-size: rem(18);
     line-height: rem(21.94);
   }
-}
-
-.artists-list__icon {
-  width: rem(17);
-  height: rem(17);
 }
 
 .artists-button {
