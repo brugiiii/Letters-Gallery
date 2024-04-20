@@ -15,7 +15,7 @@
 
 .gallery-aside {
   position: sticky;
-  top: var(--offset-56);
+  top: calc(var(--offset-56) + var(--header-gap));
 
   grid-column: 1 / 4;
 

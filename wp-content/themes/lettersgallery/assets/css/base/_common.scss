@@ -20,10 +20,18 @@
 
 
 body {
+  --header-gap: #{rem(146)};
+
+  overflow-x: hidden;
+
   font-family: "Montserrat", sans-serif;
 
   color: $black-color;
   background-color: $white-color;
+
+  @include tablet() {
+    --header-gap: #{rem(120)};
+  }
 }
 
 .semibold {
@@ -41,8 +49,8 @@ body {
 .h1 {
   @extend .semibold;
 
-  font-size: rem(100);
-  line-height: rem(121.9);
+  font-size: rem(70);
+  line-height: rem(85.33);
 
   @include tablet() {
     font-size: rem(60);
@@ -94,7 +102,7 @@ body {
   font-size: rem(26);
   line-height: rem(31.69);
 
-  @include tablet(){
+  @include tablet() {
     font-size: rem(18);
     line-height: rem(21.94);
   }
@@ -109,7 +117,7 @@ body {
   font-size: rem(24);
   line-height: rem(33.6);
 
-  @include tablet(){
+  @include tablet() {
     font-size: rem(22);
     line-height: rem(30.8);
   }

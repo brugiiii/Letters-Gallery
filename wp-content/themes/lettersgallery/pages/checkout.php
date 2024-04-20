@@ -10,6 +10,7 @@ Template Name: Checkout
     <?=
     get_template_part('sections/heroSection');
     get_template_part('sections/checkout/paymentSection');
+    get_template_part("templates/scrollTop");
     ?>
 </main>
 

@@ -24,6 +24,7 @@ $cart_count = WC()->cart->get_cart_contents_count();
 
 <?php if (is_404()) return ?>
 <div class="wrapper">
+    <div class="header-gap"></div>
     <header class="header">
 
         <div class="header-wrapper letter-spacing">
@@ -71,3 +72,4 @@ $cart_count = WC()->cart->get_cart_contents_count();
         </div>
 
     </header>
+
