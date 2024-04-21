@@ -1,8 +1,16 @@
 @import "../basket/summary";
 
+.section-title {
+  margin-top: rem(40);
+
+  @include tablet() {
+    margin-top: rem(70);
+  }
+}
+
 .basket-total {
   position: sticky;
-  top: calc(#{rem(20)} + var(--header-gap));
+  top: rem(20);
   align-self: flex-start;
 
   @include tablet() {
@@ -16,8 +24,12 @@
 }
 
 .payment {
-  padding-top: var(--offset-240);
+  padding-top: rem(50);
   padding-bottom: var(--offset-240);
+
+  @include tablet() {
+    padding-top: rem(30);
+  }
 
   & .grid-container {
     padding-top: rem(80);
@@ -25,7 +37,6 @@
     @include tablet() {
       display: flex;
       flex-direction: column-reverse;
-      gap: rem(70);
       padding-top: rem(40);
     }
   }
@@ -35,6 +46,10 @@
     grid-column: 1 / 8;
     max-width: rem(660);
     padding: 0;
+
+    @include tablet() {
+      margin-top: rem(40);
+    }
 
     & input,
     & textarea {
@@ -93,7 +108,7 @@
     &:not(:first-of-type) {
       margin-top: rem(40);
 
-      @include tablet(){
+      @include tablet() {
         margin-top: rem(34);
       }
     }
@@ -146,7 +161,7 @@
     font-size: rem(16);
     line-height: rem(19.5);
 
-    @include tablet(){
+    @include tablet() {
       font-size: rem(15);
       line-height: rem(18.29);
       margin-top: rem(14);

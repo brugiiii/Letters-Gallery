@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="theme-color" content="#3F352C" />
+    <meta name="theme-color" content="#3F352C"/>
 
     <?php wp_head(); ?>
 
@@ -24,7 +24,6 @@ $cart_count = WC()->cart->get_cart_contents_count();
 
 <?php if (is_404()) return ?>
 <div class="wrapper">
-    <div class="header-gap"></div>
     <header class="header">
 
         <div class="header-wrapper letter-spacing">
@@ -50,24 +49,24 @@ $cart_count = WC()->cart->get_cart_contents_count();
                     <?= get_template_part('templates/navigation', null, array('location' => 'menu-header')); ?>
                     <span class="nav-line"></span>
                 </nav>
-                <div class="tools-wrapper">
-                    <?= get_template_part('templates/languageSwitcher'); ?>
-                    <a href="<?= get_permalink($basket_id); ?>"
-                       class="cart-button d-flex align-items-center gap-2 <?= $cart_count === 0 ? " hidden" : ""; ?>"
-                       type="button">
+                <?= get_template_part('templates/languageSwitcher'); ?>
+
+                <a href="<?= get_permalink($basket_id); ?>"
+                   class="cart-button d-flex align-items-center gap-2 <?= $cart_count === 0 ? " hidden" : ""; ?>"
+                   type="button">
                         <span class="card-button__price fw-medium">
                             <?= wc_price(WC()->cart->get_cart_contents_total()); ?>
                         </span>
-                        <div class="cart-button__wrapper position-relative">
-                            <svg class="card-button__icon" width="28" height="28">
-                                <use href="<?php get_image('sprite.svg#basket'); ?>"></use>
-                            </svg>
-                            <span class="p8 letter-spacing position-absolute top-0 end-0 text-white rounded-circle text-center cart-count">
+                    <div class="cart-button__wrapper position-relative">
+                        <svg class="card-button__icon" width="28" height="28">
+                            <use href="<?php get_image('sprite.svg#basket'); ?>"></use>
+                        </svg>
+                        <span class="p8 letter-spacing position-absolute top-0 end-0 text-white rounded-circle text-center cart-count">
                             <?= $cart_count; ?>
                         </span>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+
             </div>
         </div>
 

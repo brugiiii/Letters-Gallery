@@ -2,7 +2,7 @@ import throttle from "lodash.throttle";
 import {disableBodyScroll, enableBodyScroll} from "../utils/utils"
 import refs from "./refs"
 
-const {burgerButtonEl, burgerMenuEl} = refs
+const {burgerButtonEl, burgerMenuEl, bodyEl} = refs
 
 const throttledHandleResize = throttle(handleResize, 200)
 
@@ -11,7 +11,7 @@ function handleResize() {
 }
 
 function handleButtonClick() {
-    if (burgerButtonEl.hasClass("active")) {
+    if (bodyEl.hasClass("menu-is-open")) {
         enableBodyScroll()
 
         window.removeEventListener("resize", throttledHandleResize)
@@ -21,13 +21,7 @@ function handleButtonClick() {
         window.addEventListener("resize", throttledHandleResize)
     }
 
-    burgerButtonEl.toggleClass("active")
-    burgerMenuEl.toggleClass("hidden")
-
-    window.scroll({
-        top: 0,
-        behavior: "smooth"
-    })
+    bodyEl.toggleClass("menu-is-open")
 }
 
 burgerButtonEl.on("click", throttle(handleButtonClick, 250))

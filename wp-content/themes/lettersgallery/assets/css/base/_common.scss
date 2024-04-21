@@ -20,18 +20,12 @@
 
 
 body {
-  --header-gap: #{rem(146)};
-
   overflow-x: hidden;
 
   font-family: "Montserrat", sans-serif;
 
   color: $black-color;
   background-color: $white-color;
-
-  @include tablet() {
-    --header-gap: #{rem(120)};
-  }
 }
 
 .semibold {

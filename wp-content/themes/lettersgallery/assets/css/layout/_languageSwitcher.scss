@@ -1,5 +1,10 @@
 .language-switcher {
   display: flex;
+  padding-top: rem(3);
+
+  @include tablet(){
+    padding-top: 0;
+  }
 }
 
 .language-switcher__item {
@@ -29,7 +34,7 @@
   @include hover(color $base-4 $black-color);
 
   font-size: rem(18);
-  line-height: calc(21.94 / 18);
+  line-height: rem(21.94);
   text-transform: uppercase;
 
   &.active {
