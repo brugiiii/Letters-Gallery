@@ -30,7 +30,7 @@
     gap: rem(32);
 
     & > li {
-      & > a {
+      & .nav-list__link {
         @include hover(color $black-color $base-2);
 
         padding-bottom: rem(8);
@@ -40,7 +40,8 @@
       }
     }
 
-    & a {
+    & a,
+    & button {
       display: inline-block;
     }
 
@@ -65,20 +66,29 @@
   max-width: fit-content;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &.active {
     & .sub-menu {
       opacity: 1;
       visibility: visible;
     }
   }
+}
 
-  & li {
-    & button {
-      @include hover(text-decoration-color transparent $base-2, color $base-3 $base-2);
+.sub-menu-list {
+  max-height: rem(299);
+  overflow-y: scroll;
 
-      padding: rem(7) rem(47) rem(7) rem(9);
-      text-decoration: underline;
-    }
+  @include tablet() {
+    max-height: rem(206);
+  }
+
+  & button {
+    @include hover(text-decoration-color transparent $base-2, color $base-3 $base-2);
+
+    padding: rem(7) rem(29) rem(7) rem(9);
+    text-decoration: underline;
+    white-space: nowrap;
   }
 
   & li:first-child {
@@ -89,29 +99,58 @@
 
   & li:last-child {
     & button {
-      padding-bottom: rem(25);
+      padding-bottom: rem(15);
     }
   }
 
-  & > a {
-    pointer-events: none;
+  /* width */
+  &::-webkit-scrollbar {
+    display: block;
+    width: rem(2);
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    margin-top: rem(47);
+    margin-bottom: rem(22);
+    border-radius: rem(8);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: rem(8);
+    background: $base-1;
+  }
+
+  &:has(> li:nth-child(9)) {
+    &::-webkit-scrollbar-track {
+      @media screen and (min-width: 1025px) {
+        background-color: #DFDFDF;
+      }
+    }
+  }
+
+  &:has(> li:nth-child(7)) {
+    &::-webkit-scrollbar-track {
+      @include tablet() {
+        background-color: #DFDFDF;
+      }
+    }
   }
 }
 
 .sub-menu {
   @include transition(opacity, visibility);
 
-  top: calc(100% + rem(9));
+  top: calc(100% + #{rem(9)});
   z-index: 101;
+
+  padding-right: rem(18);
 
   box-shadow: 0 0 rem(8) 0 #30211C1F;
 
   opacity: 0;
   visibility: hidden;
-
-  & button {
-    white-space: nowrap;
-  }
 }
 
 .header-wrapper {
@@ -132,7 +171,7 @@
         right: 0;
 
         width: rem(1);
-        height: calc(100% - rem(1));
+        height: calc(100% - #{rem(1)});
 
         background-color: $white-color;
       }

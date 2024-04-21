@@ -7,6 +7,7 @@ const refs = {
     burgerButtonEl: $(".burger"),
     burgerMenuEl: $(".menu"),
     footerFormEL: $(".footer-form"),
+    menuButtonMob: $(".menu .menu-item-has-children"),
     bodyEl: $("body"),
 }
 

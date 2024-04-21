@@ -99,7 +99,7 @@ body.menu-is-open {
         margin-top: rem(42);
       }
 
-      & a {
+      & .nav-list__link {
         font-size: rem(18);
         line-height: rem(21.94);
         font-weight: 500;
@@ -117,15 +117,39 @@ body.menu-is-open {
     &:hover {
       & .menu-item__icon {
         transform: rotateX(180deg);
+
+        @include tablet() {
+          transform: rotateX(0);
+        }
       }
 
       & .sub-menu {
         opacity: 1;
         visibility: visible;
+
+        @include tablet() {
+          opacity: 0;
+          visibility: hidden;
+        }
       }
     }
 
-    & a {
+    &.active {
+      & .menu-item__icon {
+        @include tablet() {
+          transform: rotateX(180deg);
+        }
+      }
+
+      & .sub-menu {
+        @include tablet() {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    & > button {
       display: flex;
       align-items: center;
       gap: rem(18);

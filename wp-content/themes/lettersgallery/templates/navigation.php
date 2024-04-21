@@ -17,39 +17,60 @@ $menu = wp_get_nav_menu_items($menu_id);
             }
             ?>
             <li <?= $has_children ? ' class="position-relative menu-item-has-children" ' : '' ?>>
-                <a href="<?= $menu_item->url ?>">
-                    <?= $menu_item->title ?>
-                    <?php
-                    if ($has_children) {
-                        ?>
-                        <svg class="menu-item__icon" width="18" height="11">
-                            <use href="<?= get_image('sprite.svg#arrow-down'); ?>"></use>
-                        </svg>
-                        <?php
-                    }
-                    ?>
-                </a>
                 <?php
                 if ($has_children) {
                     ?>
-                    <ul class="position-absolute start-0 bg-white sub-menu">
+                    <button class="nav-list__link border-0 p-0 bg-transparent">
+                        <?= $menu_item->title ?>
                         <?php
-                        foreach ($menu as $child_menu_item) {
-                            if ($child_menu_item->menu_item_parent == $menu_item->ID) {
-                                $category_id = get_post_meta($child_menu_item->ID, '_menu_item_object_id', true);
-                                ?>
-                                <li>
-                                    <button class="bg-transparent border-0" type="button"
-                                            data-cat-id="<?= $category_id ?>"
-                                            href="<?= $child_menu_item->url ?>">
-                                        <?= $child_menu_item->title ?>
-                                    </button>
-                                </li>
-                                <?php
-                            }
+                        if ($has_children) {
+                            ?>
+                            <svg class="menu-item__icon" width="18" height="11">
+                                <use href="<?= get_image('sprite.svg#arrow-down'); ?>"></use>
+                            </svg>
+                            <?php
                         }
                         ?>
-                    </ul>
+                    </button>
+                    <?php
+                } else {
+                    ?>
+                    <a href="<?= $menu_item->url ?>" class="nav-list__link">
+                        <?= $menu_item->title ?>
+                        <?php
+                        if ($has_children) {
+                            ?>
+                            <svg class="menu-item__icon" width="18" height="11">
+                                <use href="<?= get_image('sprite.svg#arrow-down'); ?>"></use>
+                            </svg>
+                            <?php
+                        }
+                        ?>
+                    </a>
+                    <?php
+                }
+                if ($has_children) {
+                    ?>
+                    <div class="position-absolute start-0 bg-white sub-menu">
+                        <ul class="sub-menu-list">
+                            <?php
+                            foreach ($menu as $child_menu_item) {
+                                if ($child_menu_item->menu_item_parent == $menu_item->ID) {
+                                    $category_id = get_post_meta($child_menu_item->ID, '_menu_item_object_id', true);
+                                    ?>
+                                    <li>
+                                        <button class="bg-transparent border-0" type="button"
+                                                data-cat-id="<?= $category_id ?>"
+                                                href="<?= $child_menu_item->url ?>">
+                                            <?= $child_menu_item->title ?>
+                                        </button>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>
                     <?php
                 }
                 ?>
