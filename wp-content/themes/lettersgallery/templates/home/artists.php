@@ -2,8 +2,7 @@
     <?php
     $terms = get_terms(array(
         'taxonomy' => 'product_cat',
-        'hide_empty' => false,
-        'exclude' => get_option('default_product_cat'),
+        'hide_empty' => true,
     ));
 
     if (!empty($terms) && !is_wp_error($terms)) {

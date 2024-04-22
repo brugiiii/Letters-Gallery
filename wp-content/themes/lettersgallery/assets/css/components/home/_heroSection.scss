@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  padding: rem(40) rem(80) var(--offset-240)  rem(150);
+  padding: rem(40) rem(80) var(--offset-240) rem(150);
 
   @include tablet() {
     display: block;
@@ -40,7 +40,7 @@
 .hero-wrapper__item {
   top: 7%;
 
-  @include tablet(){
+  @include tablet() {
     top: unset;
   }
 }
@@ -70,20 +70,30 @@
 }
 
 .hero-button {
-  @include hover(color $black-color $white-color, background-color transparent $base-1, fill $black-color $white-color);
-
   width: fit-content;
+  min-width: rem(281);
   gap: rem(10);
 
-  margin-top: rem(56);
-
-  padding: rem(11) rem(51);
-  border: rem(1) solid $black-color;
+  padding: rem(11);
+  border-style: solid;
+  border-width: rem(1);
   border-radius: rem(2);
 
-  @include tablet() {
-    margin-top: rem(42);
-    padding: rem(11) rem(41);
+  &:first-of-type {
+    @include hover(background-color $base-1 $base-2);
+    margin-top: rem(56);
+    border-color: $black-color;
+    color: $white-color;
+
+    @include tablet() {
+      margin-top: rem(42);
+    }
+  }
+
+  &:last-of-type {
+    @include hover(color $black-color $white-color, background-color transparent $base-1);
+    border-color: $base-1;
+    margin-top: rem(22);
   }
 }
 

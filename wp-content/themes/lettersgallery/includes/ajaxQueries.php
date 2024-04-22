@@ -40,22 +40,21 @@ function manipulate_cart()
 
     ob_start();
     get_template_part("templates/basket/itemCount");
-    $item_count_markup = ob_get_clean();
+    $cart_count = ob_get_clean();
 
     ob_start();
-    get_template_part("templates/basket/basket");
-    $basket_products_markup = ob_get_clean();
+    get_template_part("templates/basket/basketMarkup");
+    $basket_markup = ob_get_clean();
 
-    $cart_count = WC()->cart->get_cart_contents_count();
-
-    $total_price = wc_price(WC()->cart->get_cart_contents_total());
+    ob_start();
+    get_template_part("templates/cartButton");
+    $cart_button_markup = ob_get_clean();
 
     wp_send_json_success(array(
         "message" => $action === "add" ? "Product added to cart." : "Product removed from cart.",
         "cartCount" => $cart_count,
-        "itemCount" => $item_count_markup,
-        "basketMarkup" => $basket_products_markup,
-        "totalPrice" => $total_price
+        "basketMarkup" => $basket_markup,
+        "cartButtonMarkup" => $cart_button_markup
     ));
 
     wp_die();
@@ -77,16 +76,20 @@ function update_product_quantity()
         WC()->cart->set_quantity($cart_item_key, $quantity);
     }
 
+    ob_start();
+    get_template_part("templates/cartButton");
+    $cart_button_markup = ob_get_clean();
+
+    ob_start();
+    get_template_part("templates/basket/summary", null, array("link_visible" => true));
+    $summary_markup = ob_get_clean();
+
     $product_price = wc_price($quantity * get_post_meta($product_id, "_regular_price", true));
-    $total_products = WC()->cart->get_cart_contents_total();
-    $shipping_total = WC()->cart->get_shipping_total();
-    $cart_count = WC()->cart->get_cart_contents_count();
 
     $response = array(
         "productPrice" => $product_price,
-        "productsPrice" => wc_price($total_products),
-        "totalPrice" => wc_price($total_products + $shipping_total),
-        "cartCount" => $cart_count
+        "cartButtonMarkup" => $cart_button_markup,
+        "summaryMarkup" => $summary_markup
     );
 
     wp_send_json_success($response);

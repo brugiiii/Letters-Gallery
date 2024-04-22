@@ -1,6 +1,7 @@
 <?php
 $categories = $_POST["categories"] ?? array();
 $tags = $_POST["tags"] ?? array();
+$sizes = $_POST["sizes"] ?? array();
 $page = isset($_POST["page"]) ? intval($_POST["page"]) : 1;
 $class = $_POST["class"] ?? 62;
 $posts_per_page = 6;
@@ -38,6 +39,15 @@ if (!empty($tags)) {
         "taxonomy" => "product_tag",
         "field" => "id",
         "terms" => $tags,
+        "operator" => "IN",
+    );
+}
+
+if (!empty($sizes)) {
+    $args["tax_query"][] = array(
+        "taxonomy" => "product_size",
+        "field" => "id",
+        "terms" => $sizes,
         "operator" => "IN",
     );
 }

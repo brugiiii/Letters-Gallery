@@ -5,11 +5,8 @@ const {
     accessoriesWrapper,
     productsWrapper,
     buyButton,
-    cartCountEl,
     itemCountEl,
     basketWrapper,
-    cartButton,
-    cardButtonPrice
 } = refs
 const {ajax_url} = settings;
 
@@ -40,18 +37,17 @@ function manipulateCart(e) {
 }
 
 function handleResponse($this, cartAction, closestCard, productsBuyButtons, res) {
-    const {basketMarkup, itemCount, cartCount, totalPrice} = res.data
+    const {basketMarkup, cartCount, cartButtonMarkup} = res.data
+    const cartButton = $(".cart-button")
 
     updateBuyButton(cartAction, $this)
 
     closestCard.removeClass("loading")
     productsBuyButtons.attr("disabled", false)
 
-    cartCount === 0 ? cartButton.addClass("hidden") : cartButton.removeClass("hidden")
-    cartCountEl.text(cartCount)
-    itemCountEl.text(itemCount)
+    itemCountEl.text(cartCount) //Counter in basket item:
     basketWrapper.html(basketMarkup)
-    cardButtonPrice.html(totalPrice)
+    cartButton.replaceWith(cartButtonMarkup)
 }
 
 buyButton.on("click", manipulateCart)

@@ -49,6 +49,10 @@
   }
 }
 
+.basket-products:has( .loading) {
+  pointer-events: none;
+}
+
 .basket-products__item {
   display: flex;
   gap: rem(30);
@@ -146,7 +150,7 @@
   font-size: rem(22);
   line-height: rem(22);
 
-  @include tablet(){
+  @include tablet() {
     font-size: rem(16);
   }
 }

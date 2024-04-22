@@ -10,7 +10,12 @@ $params = array(
     ), array(
         "taxonomy" => "tag",
         "translate" => "subject_matter"
-    ))
+    ),
+    array(
+        "taxonomy" => "size",
+        "translate" => "size"
+    )
+)
 ?>
 
 <section class="gallery" id="gallery">
@@ -25,24 +30,24 @@ $params = array(
                     <h3 class="gallery-aside__title h4 mb-0 fw-semibold">
                         <?= the_field("filter_title", $home_page_id); ?>
                     </h3>
-                    <svg class="gallery-aside__icon" width="28" height="27">
-                        <use href="<?php get_image('sprite.svg#filter'); ?>"></use>
-                    </svg>
+                    <button type="button" class="gallery-aside__button d-flex border-0 p-0">
+                        <svg class="gallery-aside__icon" width="28" height="27">
+                            <use href="<?php get_image('sprite.svg#filter'); ?>"></use>
+                        </svg>
+                    </button>
                 </div>
                 <div class="gallery-nav-wrapper">
-                    <?php
-                    foreach ($params as $param) {
-                        ?>
-                        <div class="gallery-nav">
-                            <h4 class="h5 fw-semibold gallery__title mb-0">
-                                <?= translate_and_output($param["translate"]); ?>
-                            </h4>
-
-                            <?= get_template_part("templates/home/taxonomyList", null, array("taxonomy" => $param["taxonomy"], "class" => $class)); ?>
-                        </div>
+                    <div class="gallery-nav-inner">
                         <?php
-                    }
-                    ?>
+                        foreach ($params as $param) {
+                            ?>
+                            <div class="gallery-nav">
+                                <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "class" => $class)); ?>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </aside>
             <div class="gallery-wrapper">

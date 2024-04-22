@@ -76,8 +76,8 @@
     margin-top: rem(30);
   }
 
-  & .products__price {
-    margin-top: var(--offset-26);
+  & > span {
+    margin-bottom: var(--offset-26);
   }
 
   & p:not(.products__price) {

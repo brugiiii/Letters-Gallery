@@ -2,11 +2,12 @@ import refs from "./refs"
 import {productsSkeleton} from "../helpers/skeleton";
 
 const {ajax_url} = settings;
-const {productsWrapper, paginationWrapper, categoriesList, tagsList} = refs
+const {productsWrapper, paginationWrapper, categoriesList, tagsList, sizesList} = refs
 const query = {
     action: 'fetch_products',
     tags: [],
     categories: [],
+    sizes: [],
     class: -1,
     page: 1
 }
@@ -77,8 +78,28 @@ function tagClick(e) {
     fetchProducts()
 }
 
+function sizeClick(e) {
+    const $this = $(e.currentTarget)
+    const sizeId = $this.data("size-id")
+
+    if ($this.hasClass("active")) {
+        const sizeIndex = query.sizes.indexOf(sizeId)
+
+        query.sizes.splice(sizeIndex, 1)
+        $this.removeClass("active")
+
+        return fetchProducts()
+    }
+
+    query.sizes.push(sizeId)
+    $this.addClass("active")
+
+    fetchProducts()
+}
+
 categoriesList.on("click", "button", categoryClick)
 tagsList.on("click", "button", tagClick)
+sizesList.on("click", "button", sizeClick)
 paginationWrapper.on("click", "button", paginationButtonClick)
 
 document.addEventListener("DOMContentLoaded", () => {

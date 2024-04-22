@@ -5,6 +5,7 @@ const refs = {
     buyButton: $(".products__buy"),
     categoriesList: $(".cat-list"),
     tagsList: $(".tag-list"),
+    sizesList: $(".size-list"),
     cartCountEl: $(".cart-count"),
     artistsList: $(".artists-list"),
     gallerySection: $(".gallery"),
@@ -14,8 +15,8 @@ const refs = {
     basketWrapper: $(".basket-wrapper"),
     artistsListWrapper: $(".artists-list__wrapper"),
     artistsButton: $(".artists-button"),
-    cartButton: $(".cart-button"),
-    cardButtonPrice: $(".card-button__price")
+    cardButtonPrice: $(".card-button__price"),
+    mobileFilterButton: $(".gallery-aside__button"),
 }
 
 export default refs

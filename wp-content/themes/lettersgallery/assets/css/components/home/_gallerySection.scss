@@ -25,27 +25,15 @@
     grid-column: 1 / -1;
   }
 
-  &:has(.gallery-aside__icon:hover) .gallery-nav-wrapper {
+  &:has(.gallery-aside__button.active) .gallery-nav-wrapper {
     opacity: 1;
     visibility: visible;
   }
 }
 
 .gallery-nav {
-  &:first-of-type {
-    margin-top: var(--offset-60);
-
-    @include tablet() {
-      margin-top: 0;
-    }
-  }
-
-  &:last-of-type {
+  &:not(:first-of-type) {
     margin-top: var(--offset-50);
-
-    @include tablet() {
-      margin-top: var();
-    }
   }
 
   & .nav-list {
@@ -174,11 +162,12 @@
 }
 
 .gallery-aside__wrapper {
-  display: contents;
+  padding-left: rem(31);
 
   @include tablet() {
     display: flex;
     justify-content: space-between;
+    padding-left: 0;
   }
 }
 
@@ -192,16 +181,66 @@
     top: calc(100% + rem(14));
     right: 0;
     z-index: 2;
-
     display: block;
-
-    min-width: rem(236);
-    padding: rem(30) rem(11);
-
+    padding-right: rem(12);
     opacity: 0;
     visibility: hidden;
-    box-shadow: 0px 0px rem(8) 0px rgba(48, 33, 28, 0.12);
+    box-shadow: 0 0 rem(8) 0px rgba(48, 33, 28, 0.12);
     background-color: $white-color;
+  }
+}
+
+.gallery-nav-inner {
+  max-height: rem(718);
+  padding-left: rem(31);
+  margin-top: var(--offset-60);
+  overflow-y: scroll;
+  direction: rtl;
+  text-align: start;
+
+  @include tablet() {
+    max-height: rem(430);
+    width: rem(236);
+    padding: rem(30) rem(11);
+    margin-top: 0;
+    direction: ltr;
+  }
+
+  /* width */
+  &.scroll-active {
+    &::-webkit-scrollbar {
+      display: block;
+      width: rem(2);
+    }
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: rem(8);
+
+    @include tablet() {
+      margin-top: rem(17);
+      margin-bottom: rem(17);
+    }
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: rem(8);
+    background: $base-1;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background-color: #DFDFDF;
+  }
+}
+
+.gallery-aside__button {
+  background-color: transparent;
+
+  &.active {
+    background-color: $base-2;
   }
 }
 
@@ -212,18 +251,6 @@
 
   width: rem(28);
   height: rem(27);
-
-  @include tablet() {
-    display: block;
-  }
-
-  &:hover {
-    background-color: $base-2;
-  }
-}
-
-.gallery-nav-wrapper {
-  display: contents;
 
   @include tablet() {
     display: block;

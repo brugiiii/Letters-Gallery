@@ -35,6 +35,10 @@
     &:not(:first-of-type) {
       margin-top: var(--offset-12);
     }
+
+    & span:first-child{
+      max-width: rem(239);
+    }
   }
 }
 

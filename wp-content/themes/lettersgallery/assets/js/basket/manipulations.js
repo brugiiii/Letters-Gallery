@@ -1,7 +1,7 @@
 import refs from "./refs"
 import updateBuyButton from "../helpers/updateBuyButton"
 
-const {basketWrapper, itemCountEl, cartButton, cardButtonPrice, cartCountEl} = refs
+const {basketWrapper, itemCountEl} = refs
 const {ajax_url} = settings;
 
 function updateQuantity(e) {
@@ -42,17 +42,14 @@ function updateProductQuantity(productId, quantity, $this) {
         type: 'post',
         data: query,
         success: (res) => {
-            const {productPrice, productsPrice, totalPrice, cartCount} = res.data;
+            const {productPrice, cartButtonMarkup, summaryMarkup} = res.data;
             const priceEl = $(`.basket-price[data-id="${productId}"]`)
-            const summaryItem = $(".summary-item span:last-child")
-            const summaryTotal = $(".summary-total span:last-child")
+            const summaryWrapper = $(".basket-total")
+            const cartButton = $(".cart-button")
 
-            cartCountEl.text(cartCount)
             priceEl.html(productPrice)
-            summaryItem.html(productsPrice)
-            summaryTotal.html(totalPrice)
-            cardButtonPrice.html(productsPrice)
-
+            summaryWrapper.replaceWith(summaryMarkup)
+            cartButton.replaceWith(cartButtonMarkup)
 
             closestCard.removeClass("loading")
         },
@@ -78,19 +75,17 @@ function removeProductFromCart(e) {
         type: 'post',
         data: query,
         success: (res) => {
-            const {itemCount, basketMarkup, cartCount, totalPrice} = res.data
+            const {cartCount, basketMarkup, cartButtonMarkup} = res.data
             const buyButton = $(`.products__buy[data-id="${productId}"]`)
+            const cartButton = $(".cart-button")
 
             updateBuyButton("delete", buyButton)
 
             closestCard.removeClass("loading")
 
-            cartCount === 0 ? cartButton.addClass("hidden") : cartButton.removeClass("hidden")
-
-            itemCountEl.text(itemCount)
-            cartCountEl.text(cartCount)
-            cardButtonPrice.html(totalPrice)
+            itemCountEl.text(cartCount)
             basketWrapper.html(basketMarkup)
+            cartButton.replaceWith(cartButtonMarkup)
         },
         error: (error) => console.log(error)
     });

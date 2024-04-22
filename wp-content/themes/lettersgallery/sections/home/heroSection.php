@@ -1,3 +1,8 @@
+<?php
+$current_lang = pll_current_language();
+$accessories_page_id = pll_get_post(114, $current_lang);
+?>
+
 <section class="hero">
     <div class="container p-0">
         <div class="hero-wrapper">
@@ -9,11 +14,11 @@
                 <p class="p2 hero-text">
                     <?= the_field('hero_text'); ?>
                 </p>
-                <a class="h5 letter-spacing fw-normal mb-0 d-flex align-items-center hero-button" href="#gallery">
+                <a class="h5 letter-spacing fw-normal mb-0 text-center d-block hero-button" href="#gallery">
                     <?= the_field('hero_button'); ?>
-                    <svg class="hero-button__icon" width="24" height="24">
-                        <use href="<?php get_image('sprite.svg#arrow-right-bottom'); ?>"></use>
-                    </svg>
+                </a>
+                <a class="h5 letter-spacing fw-normal mb-0 text-center d-block hero-button" href="<?= get_permalink($accessories_page_id); ?>">
+                    <?= the_field('hero_button_accessories'); ?>
                 </a>
             </div>
             <div class="hero-gallery">

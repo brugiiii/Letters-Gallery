@@ -1,5 +1,6 @@
 <?php
 $product_id = get_the_ID();
+$product_sizes = wp_get_post_terms($product_id, 'product_size');
 
 $in_cart = false;
 if (WC()->cart) {
@@ -20,10 +21,16 @@ if (WC()->cart) {
         <div class="grid-container">
             <?= get_template_part('templates/product/gallery'); ?>
             <div class="d-flex flex-column product-wrapper">
-                <span class="h6 fw-medium mb-0">
-                    <?= the_field('size'); ?>
-                </span>
-                <p class="d-flex mb-0 products__price">
+                <?php
+                if (!empty($product_sizes) && !is_wp_error($product_sizes)) {
+                    ?>
+                    <span class="h6 fw-medium">
+                        <?= $size = $product_sizes[0]->name . " (cm)"; ?>
+                    </span>
+                    <?php
+                }
+                ?>
+                <p class="d-flex my-0 products__price">
                     <span class="h6 fw-medium mb-0">
                         <?= translate_and_output("price"); ?>
                     </span>
