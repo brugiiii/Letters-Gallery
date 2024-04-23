@@ -15,7 +15,21 @@ $params = array(
         "taxonomy" => "size",
         "translate" => "size"
     )
-)
+);
+
+$query = array(
+    'post_type' => 'product',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'class',
+            'field' => 'id',
+            'terms' => $class,
+        ),
+    ),
+);
+
+$products = new WP_Query($query);
 ?>
 
 <section class="gallery" id="gallery">
@@ -37,12 +51,18 @@ $params = array(
                     </button>
                 </div>
                 <div class="gallery-nav-wrapper">
-                    <div class="gallery-nav-inner">
+                    <div class="filter-wrapper">
+                        <button type="button" class="filter-wrapper__button p3 fw-semibold text-capitalize p-0 bg-transparent border-0">
+                            <?= translate_and_output('clear_all'); ?>
+                        </button>
+                        <div class="filter"></div>
+                    </div>
+                    <div class="gallery-nav-inner" data-class-id="<?= $class; ?>">
                         <?php
                         foreach ($params as $param) {
                             ?>
                             <div class="gallery-nav">
-                                <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "class" => $class)); ?>
+                                <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "products" => $products)); ?>
                             </div>
                             <?php
                         }

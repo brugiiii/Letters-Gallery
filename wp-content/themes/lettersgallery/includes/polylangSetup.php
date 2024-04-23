@@ -44,7 +44,8 @@ $strings_to_translate = array(
     "accessory_details" => "accessory details",
     "painting" => "Painting",
     "accessory" => "Accessory",
-    "size" => "Size (Cm)"
+    "size" => "Size (Cm)",
+    "clear_all" => "clear all",
 );
 
 if (function_exists("pll_register_string")) {
