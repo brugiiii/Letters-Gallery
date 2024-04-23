@@ -52,7 +52,7 @@ $products = new WP_Query($query);
                 </div>
                 <div class="gallery-nav-wrapper">
                     <div class="filter-wrapper">
-                        <button type="button" class="filter-wrapper__button p3 fw-semibold text-capitalize p-0 bg-transparent border-0">
+                        <button type="button" class="filter-wrapper__button text-start p3 fw-semibold text-capitalize p-0 bg-transparent border-0">
                             <?= translate_and_output('clear_all'); ?>
                         </button>
                         <div class="filter"></div>

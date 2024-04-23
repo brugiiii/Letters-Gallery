@@ -17,6 +17,7 @@
   grid-column: 1 / 4;
 
   @include tablet() {
+    position: relative;
     grid-column: 1 / -1;
   }
 
@@ -70,6 +71,10 @@
     color: $black-color;
     text-decoration: underline;
 
+    @include tablet(){
+      flex-direction: row-reverse;
+    }
+
     &::after {
       content: "";
       display: block;
@@ -83,7 +88,9 @@
       text-decoration-color: $base-2;
 
       &::after {
-        background-color: $base-1;
+        background-size: rem(14) rem(14);
+        background-position: center;
+        background-image: url(../images/checked.svg);
       }
     }
   }
@@ -194,7 +201,8 @@
     right: 0;
     z-index: 2;
     display: block;
-    padding-right: rem(12);
+    width: rem(284);
+    padding: 0 rem(14) 0 rem(20);
     margin-top: 0;
     opacity: 0;
     visibility: hidden;
@@ -204,6 +212,16 @@
 
   &:has(.filter button){
     margin-top: rem(20);
+
+    @include tablet(){
+      margin-top: 0;
+    }
+
+    & .gallery-nav-inner {
+      @include tablet(){
+        padding-top: 0;
+      }
+    }
   }
 }
 
@@ -215,9 +233,8 @@
   text-align: start;
 
   @include tablet() {
-    max-height: rem(430);
-    width: rem(236);
-    padding: rem(30) rem(11);
+    max-height: rem(496);
+    padding: rem(18) 0 rem(12);
     direction: ltr;
   }
 
@@ -273,7 +290,14 @@
 }
 
 .filter-wrapper {
+  padding-top: rem(18);
   margin-bottom: rem(40);
+
+  @include tablet(){
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: rem(10);
+  }
 }
 
 .filter-wrapper:not(:has(.filter button)){
@@ -285,6 +309,12 @@
   margin-bottom: rem(12);
   color: $base-2;
 
+  @include tablet(){
+    font-size: rem(16);
+    line-height: rem(19.5);
+    margin-bottom: 0;
+  }
+
   &:has(+ .filter button:nth-child(2)){
     display: block;
   }
@@ -294,6 +324,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: rem(12) rem(24);
+
+  @include tablet(){
+    margin-bottom: rem(22);
+  }
 }
 
 .filter button {
@@ -303,6 +337,10 @@
   background-color: transparent;
   padding: 0;
   border: none;
+
+  @include tablet(){
+    flex-direction: row-reverse;
+  }
 
   & span {
     display: block;

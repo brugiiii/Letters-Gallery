@@ -134,21 +134,27 @@ function handleFilterClick(e) {
         const catIndex = query.categories.indexOf(catId)
         query.categories.splice(catIndex, 1)
         categoriesList.find(`button[data-cat-id=${catId}]`).removeClass("active")
-        $this.remove()
+        setTimeout(() => {
+            $this.remove()
+        }, 0)
     }
 
     if (tagId) {
         const catIndex = query.tags.indexOf(tagId)
         query.tags.splice(catIndex, 1)
         tagsList.find(`button[data-tag-id=${tagId}]`).removeClass("active")
-        $this.remove()
+        setTimeout(() => {
+            $this.remove()
+        }, 0)
     }
 
     if (sizeId) {
         const catIndex = query.sizes.indexOf(sizeId)
         query.sizes.splice(catIndex, 1)
         sizesList.find(`button[data-size-id=${sizeId}]`).removeClass("active")
-        $this.remove()
+        setTimeout(() => {
+            $this.remove()
+        }, 0)
     }
 
     fetchProducts()
