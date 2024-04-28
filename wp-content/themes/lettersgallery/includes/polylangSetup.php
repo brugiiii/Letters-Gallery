@@ -46,6 +46,9 @@ $strings_to_translate = array(
     "accessory" => "Accessory",
     "size" => "Size (Cm)",
     "clear_all" => "clear all",
+    "female_accessories" => "Female Accessories",
+    "male_accessories" => "Male Accessories",
+    "home_and_accessories" => "Home & Accessories",
 );
 
 if (function_exists("pll_register_string")) {

@@ -140,6 +140,7 @@
 .products__buy {
   @include hover(background-color $base-1 $base-2);
 
+  margin-top: auto;
   color: $white-color;
   background-color: $base-1;
 

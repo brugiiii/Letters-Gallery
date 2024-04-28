@@ -60,7 +60,7 @@ $menu = wp_get_nav_menu_items($menu_id);
                                     ?>
                                     <li>
                                         <button class="bg-transparent border-0" type="button"
-                                                data-cat-id="<?= $category_id ?>"
+                                                data-artist-id="<?= $category_id ?>"
                                                 href="<?= $child_menu_item->url ?>">
                                             <?= $child_menu_item->title ?>
                                         </button>

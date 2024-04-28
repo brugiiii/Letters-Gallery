@@ -28,6 +28,12 @@
 .legal-wrapper {
   margin-top: var(--offset-25);
 
+  & a {
+    @include hover(text-decoration-color $black-color $base-2, color $black-color $base-2);
+
+    text-decoration: underline;
+  }
+
   & p {
     margin-top: rem(14);
 

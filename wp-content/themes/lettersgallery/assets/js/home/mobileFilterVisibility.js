@@ -1,6 +1,6 @@
 import refs from "./refs"
 
-const {mobileFilterButton} = refs
+const {mobileFilterButton, closeFilter} = refs
 
 function handleButtonClick() {
     if (mobileFilterButton.hasClass("active")) return;
@@ -14,10 +14,15 @@ function handleButtonClick() {
 
 function handleDocumentClick(e) {
     if (!e.target.closest(".gallery-nav-wrapper") || e.target === mobileFilterButton[0]) {
-        $(document).off("click", handleDocumentClick);
-
-        mobileFilterButton.toggleClass("active");
+        hideFilter()
     }
 }
 
+function hideFilter(){
+    $(document).off("click", handleDocumentClick);
+
+    mobileFilterButton.toggleClass("active");
+}
+
 mobileFilterButton.on("click", handleButtonClick)
+closeFilter.on("click", hideFilter)

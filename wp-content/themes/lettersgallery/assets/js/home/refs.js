@@ -4,9 +4,7 @@ const refs = {
     accessoriesWrapper: $(".accessories-wrapper"),
     buyButton: $(".products__buy"),
     galleryNav: $(".gallery-nav-inner"),
-    categoriesList: $(".cat-list"),
-    tagsList: $(".tag-list"),
-    sizesList: $(".size-list"),
+    navListButtons: $(".nav-list__button"),
     filterEl: $(".filter"),
     clearAllButton: $(".filter-wrapper__button"),
     cartCountEl: $(".cart-count"),
@@ -20,6 +18,7 @@ const refs = {
     artistsButton: $(".artists-button"),
     cardButtonPrice: $(".card-button__price"),
     mobileFilterButton: $(".gallery-aside__button"),
+    closeFilter: $(".gallery-nav-close")
 }
 
 export default refs

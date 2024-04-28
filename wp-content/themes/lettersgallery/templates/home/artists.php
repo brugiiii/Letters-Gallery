@@ -1,14 +1,12 @@
 <div class="artists-list grid-container">
     <?php
     $terms = get_terms(array(
-        'taxonomy' => 'product_cat',
-        'hide_empty' => true,
+        'taxonomy' => 'product_artist',
     ));
 
     if (!empty($terms) && !is_wp_error($terms)) {
         $count = 0;
         foreach ($terms as $term) {
-            $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
             if ($count < 3) :
                 get_template_part("templates/home/artistsItem", null, array("term" => $term));
             else :

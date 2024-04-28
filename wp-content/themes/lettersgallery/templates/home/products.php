@@ -1,13 +1,11 @@
 <?php
-$categories = $_POST["categories"] ?? array();
-$tags = $_POST["tags"] ?? array();
-$sizes = $_POST["sizes"] ?? array();
+$taxSlug = $_POST["taxSlug"] ?? "";
+$taxObjects = $_POST["taxObjects"] ?? array();
 $page = isset($_POST["page"]) ? intval($_POST["page"]) : 1;
 $class = $_POST["class"] ?? 62;
 $posts_per_page = 6;
 
-// Захист від SQL-ін"єкцій
-$tags = array_map("sanitize_text_field", $tags);
+$taxIds = array_column($taxObjects, 'id');
 
 $args = array(
     "post_type" => "product",
@@ -25,30 +23,12 @@ if (!empty($class)) {
     );
 }
 
-if (!empty($categories)) {
+if (!empty($taxIds)) {
     $args['tax_query'][] = array(
-        'taxonomy' => 'product_cat',
+        'taxonomy' => $taxSlug,
         'field' => 'id',
-        'terms' => $categories,
+        'terms' => $taxIds,
         'operator' => 'IN',
-    );
-}
-
-if (!empty($tags)) {
-    $args["tax_query"][] = array(
-        "taxonomy" => "product_tag",
-        "field" => "id",
-        "terms" => $tags,
-        "operator" => "IN",
-    );
-}
-
-if (!empty($sizes)) {
-    $args["tax_query"][] = array(
-        "taxonomy" => "product_size",
-        "field" => "id",
-        "terms" => $sizes,
-        "operator" => "IN",
     );
 }
 

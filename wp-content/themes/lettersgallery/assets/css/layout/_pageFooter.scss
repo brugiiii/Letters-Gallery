@@ -218,4 +218,14 @@
     font-size: rem(16);
     line-height: rem(19.5);
   }
+
+  &:first-child {
+    margin-right: rem(32);
+
+    @include tablet(){
+      display: block;
+      margin-right: 0;
+      margin-bottom: rem(22);
+    }
+  }
 }

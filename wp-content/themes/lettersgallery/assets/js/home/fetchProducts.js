@@ -3,18 +3,23 @@ import {productsSkeleton} from "../helpers/skeleton";
 
 const {ajax_url} = settings;
 const {
-    productsWrapper, paginationWrapper, galleryNav, categoriesList, tagsList, sizesList, filterEl, clearAllButton
+    productsWrapper,
+    paginationWrapper,
+    galleryNav,
+    filterEl,
+    clearAllButton,
+    navListButtons
 } = refs
 const query = {
     action: 'fetch_products',
-    tags: [],
-    categories: [],
-    sizes: [],
+    taxSlug: "",
+    taxObjects: [],
     class: -1,
     page: 1
 }
 
 function fetchProducts() {
+
     const skeleton = productsSkeleton();
     productsWrapper.html(skeleton)
 
@@ -43,136 +48,69 @@ function paginationButtonClick(e) {
 }
 
 function handleNavClick(e) {
-
     const $this = $(e.currentTarget)
-    const catId = $this.data("cat-id")
-    const tagId = $this.data("tag-id")
-    const sizeId = $this.data("size-id")
+    const taxSlug = $this.data("tax-slug")
+    const taxId = $this.data("tax-id")
 
-    if (catId) {
-        if (!query.categories.length) {
-            filterEl.html("")
-        }
+    if ($this.hasClass("active")) {
+        const taxIndex = query.taxObjects.findIndex(obj => obj.id === taxId)
+        query.taxObjects.splice(taxIndex, 1)
 
-        if ($this.hasClass("active")) {
-            const catIndex = query.categories.indexOf(catId)
-            query.categories.splice(catIndex, 1)
-            $this.removeClass("active")
+    } else {
+        if (query.taxSlug !== taxSlug) {
+            query.taxSlug = taxSlug
+            query.taxObjects = [{id: taxId, text: $this.text()}]
 
-            filterEl.find(`button[data-cat-id="${catId}"]`).remove();
+            $(".nav-list__button").not($this).removeClass("active")
         } else {
-            query.categories.push(catId)
-            $this.addClass("active")
-
-            filterEl.append(`<button data-cat-id="${catId}"><span>${$this.text()}</span></button>`);
+            query.taxObjects.push({id: taxId, text: $this.text()})
         }
-
-        query.tags = []
-        query.sizes = []
-        tagsList.find(".active").removeClass("active")
-        sizesList.find(".active").removeClass("active")
     }
 
-    if (tagId) {
-        if (!query.tags.length) {
-            filterEl.html("")
-        }
+    $this.toggleClass("active")
 
-        if ($this.hasClass("active")) {
-            const tagIndex = query.tags.indexOf(tagId)
-            query.tags.splice(tagIndex, 1)
-            $this.removeClass("active")
-
-            filterEl.find(`button[data-tag-id="${tagId}"]`).remove();
-        } else {
-            query.tags.push(tagId)
-            $this.addClass("active")
-
-            filterEl.append(`<button data-tag-id="${tagId}"><span>${$this.text()}</span></button>`);
-        }
-
-        query.sizes = []
-        query.categories = []
-        sizesList.find(".active").removeClass("active")
-        categoriesList.find(".active").removeClass("active")
-    }
-
-    if (sizeId) {
-        if (!query.sizes.length) {
-            filterEl.html("")
-        }
-
-        if ($this.hasClass("active")) {
-            const sizeIndex = query.sizes.indexOf(sizeId)
-            query.sizes.splice(sizeIndex, 1)
-            $this.removeClass("active")
-
-            filterEl.find(`button[data-size-id="${sizeId}"]`).remove();
-        } else {
-            query.sizes.push(sizeId)
-            $this.addClass("active")
-
-            filterEl.append(`<button data-size-id="${sizeId}"><span>${$this.text()}</span></button>`);
-        }
-
-        query.tags = []
-        query.categories = []
-        tagsList.find(".active").removeClass("active")
-        categoriesList.find(".active").removeClass("active")
-    }
-
+    renderFilterButtons()
     fetchProducts()
 }
 
 function handleFilterClick(e) {
     const $this = $(e.currentTarget)
-    const catId = $this.data("cat-id")
-    const tagId = $this.data("tag-id")
-    const sizeId = $this.data("size-id")
+    const taxId = $this.data("tax-id")
 
-    if (catId) {
-        const catIndex = query.categories.indexOf(catId)
-        query.categories.splice(catIndex, 1)
-        categoriesList.find(`button[data-cat-id=${catId}]`).removeClass("active")
-        setTimeout(() => {
-            $this.remove()
-        }, 0)
-    }
+    const taxIndex = query.taxObjects.findIndex(obj => obj.id === taxId)
+    query.taxObjects.splice(taxIndex, 1)
 
-    if (tagId) {
-        const catIndex = query.tags.indexOf(tagId)
-        query.tags.splice(catIndex, 1)
-        tagsList.find(`button[data-tag-id=${tagId}]`).removeClass("active")
-        setTimeout(() => {
-            $this.remove()
-        }, 0)
-    }
+    $(`.nav-list__button.active[data-tax-id="${taxId}"`).removeClass("active")
 
-    if (sizeId) {
-        const catIndex = query.sizes.indexOf(sizeId)
-        query.sizes.splice(catIndex, 1)
-        sizesList.find(`button[data-size-id=${sizeId}]`).removeClass("active")
-        setTimeout(() => {
-            $this.remove()
-        }, 0)
-    }
+    setTimeout(() => {
+        $this.remove()
+    }, 0)
 
     fetchProducts()
 }
 
-function clearAll(){
-    galleryNav.find(".active").removeClass("active")
+function clearAll() {
+    navListButtons.removeClass("active")
     filterEl.html("")
-    query.tags = []
-    query.categories = []
-    query.sizes = []
+    query.taxObjects = []
+}
+
+function handleClearAllClick() {
+    clearAll()
     fetchProducts()
+}
+
+function renderFilterButtons() {
+    const buttonsMarkup = query.taxObjects.map(term => `
+    <button data-tax-id="${term.id}"><span>${term.text}</span></button>`).join('');
+
+    filterEl.html(buttonsMarkup)
 }
 
 galleryNav.on("click", ".nav-list__button", handleNavClick)
 paginationWrapper.on("click", "button", paginationButtonClick)
 filterEl.on("click", "button", handleFilterClick)
-clearAllButton.on("click", clearAll)
+clearAllButton.on("click", handleClearAllClick)
 document.addEventListener("DOMContentLoaded", () => {
     query.class = galleryNav.data("class-id")
     fetchProducts()

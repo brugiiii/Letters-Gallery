@@ -1,18 +1,7 @@
 <?php
-add_action('wpcf7_before_send_mail', 'send_message_to_telegram');
-add_action('admin_head', 'hide_product_description_field');
-
 function get_image($name)
 {
     echo get_template_directory_uri() . "/assets/images/" . $name;
-}
-
-function hide_product_description_field()
-{
-    global $post_type;
-    if ($post_type == 'product') { // Перевіряємо, чи ми на сторінці редагування товару
-        echo '<style>#postdivrich { display: none !important; }</style>';
-    }
 }
 
 function send_email_message($email) {

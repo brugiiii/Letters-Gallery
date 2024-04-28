@@ -3,19 +3,7 @@ $home_page_id = pll_get_post(11, pll_current_language());
 $class = $args["class"] ?? 62;
 $breadcrumbs = $args["breadcrumbs"] ?? false;
 
-$params = array(
-    array(
-        "taxonomy" => "cat",
-        "translate" => "artists"
-    ), array(
-        "taxonomy" => "tag",
-        "translate" => "subject_matter"
-    ),
-    array(
-        "taxonomy" => "size",
-        "translate" => "size"
-    )
-);
+$params = $class === 62 ? ["artist", "subject_matter", "size"] : ["male_accessories", "female_accessories", "home_and_accessories"];
 
 $query = array(
     'post_type' => 'product',
@@ -51,8 +39,14 @@ $products = new WP_Query($query);
                     </button>
                 </div>
                 <div class="gallery-nav-wrapper">
+                    <button type="button" class="gallery-nav-close border-0 p-0 bg-transparent position-absolute">
+                        <svg class="gallery-nav-icon" width="18" height="18">
+                            <use href="<?php get_image('sprite.svg#close'); ?>"></use>
+                        </svg>
+                    </button>
                     <div class="filter-wrapper">
-                        <button type="button" class="filter-wrapper__button text-start p3 fw-semibold text-capitalize p-0 bg-transparent border-0">
+                        <button type="button"
+                                class="filter-wrapper__button text-start p3 fw-semibold text-capitalize p-0 bg-transparent border-0">
                             <?= translate_and_output('clear_all'); ?>
                         </button>
                         <div class="filter"></div>
