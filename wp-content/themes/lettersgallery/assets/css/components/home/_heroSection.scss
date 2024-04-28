@@ -1,4 +1,6 @@
 .hero {
+  overflow-x: hidden;
+
   & .socials {
     display: flex;
     gap: rem(32);

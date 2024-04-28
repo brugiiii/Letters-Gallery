@@ -374,5 +374,6 @@
     height: rem(15);
     background-image: url(../images/close.svg);
     background-size: contain;
+    flex-shrink: 0;
   }
 }

@@ -1,7 +1,6 @@
 <?php
 $current_lang = pll_current_language();
-$privacy_policy_id = pll_get_post(3, $current_lang);
-$terms_of_use_id = pll_get_post(261, $current_lang);
+$pages = [3, 261, 277];
 ?>
 
 <?php if (!is_404()) {
@@ -49,12 +48,16 @@ $terms_of_use_id = pll_get_post(261, $current_lang);
                </span>
                 </div>
                 <div class="footer-inner">
-                    <a class="p4 letter-spacing footer-link" href="<?= get_permalink($privacy_policy_id); ?>">
-                        <?= get_the_title($privacy_policy_id); ?>
-                    </a>
-                    <a class="p4 letter-spacing footer-link" href="<?= get_permalink($terms_of_use_id); ?>">
-                        <?= get_the_title($terms_of_use_id); ?>
-                    </a>
+                    <?php
+                    foreach ($pages as $page){
+                        $page_id = pll_get_post($page, $current_lang);
+                        ?>
+                        <a class="p4 letter-spacing footer-link" href="<?= get_permalink($page_id); ?>">
+                            <?= get_the_title($page_id); ?>
+                        </a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

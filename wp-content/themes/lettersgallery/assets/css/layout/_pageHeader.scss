@@ -236,6 +236,7 @@
   right: rem(80);
   z-index: 199;
   padding: rem(8) rem(5);
+  border-radius: 0;
   background-color: $base-6;
 
   @include tablet() {

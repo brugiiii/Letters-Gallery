@@ -23,10 +23,10 @@ $fields_hidden = get_field("fields_hidden")
 
            <div class="legal-wrapper">
                <?php
-               foreach ($fields_visible as $field) {
+               foreach ($fields_visible as $index => $field) {
                    ?>
                    <h2 class="h8 fw-semibold text-uppercase mb-0">
-                       <?= $field["title"]; ?>
+                       <?= $index + 1 . ". " . $field["title"]; ?>
                    </h2>
                    <?php
                    echo $field["text"];
@@ -36,10 +36,10 @@ $fields_hidden = get_field("fields_hidden")
                    ?>
                    <div class="legal-inner">
                        <?php
-                       foreach ($fields_hidden as $field) {
+                       foreach ($fields_hidden as $index => $field) {
                            ?>
                            <h2 class="h8 fw-semibold text-uppercase mb-0">
-                               <?= $field["title"]; ?>
+                               <?= $index + 1 + count($fields_visible) . ". " . $field["title"]; ?>
                            </h2>
                            <?php
                            echo $field["text"];

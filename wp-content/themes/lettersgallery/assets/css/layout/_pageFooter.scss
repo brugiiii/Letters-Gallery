@@ -219,7 +219,7 @@
     line-height: rem(19.5);
   }
 
-  &:first-child {
+  &:not(:last-child) {
     margin-right: rem(32);
 
     @include tablet(){
