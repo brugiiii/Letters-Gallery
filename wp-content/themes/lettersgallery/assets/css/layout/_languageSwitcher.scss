@@ -1,10 +1,5 @@
 .language-switcher {
   display: flex;
-  padding-top: rem(3);
-
-  @include tablet(){
-    padding-top: 0;
-  }
 }
 
 .language-switcher__item {

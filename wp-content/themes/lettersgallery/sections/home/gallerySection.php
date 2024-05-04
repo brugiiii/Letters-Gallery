@@ -3,7 +3,7 @@ $home_page_id = pll_get_post(11, pll_current_language());
 $class = $args["class"] ?? 62;
 $breadcrumbs = $args["breadcrumbs"] ?? false;
 
-$params = $class === 62 ? ["artist", "subject_matter", "size"] : ["male_accessories", "female_accessories", "home_and_accessories"];
+$params = $class === 62 ? ["artist", "subject_matter", "size"] : ["female_accessories", "male_accessories", "home_and_accessories"];
 
 $query = array(
     'post_type' => 'product',

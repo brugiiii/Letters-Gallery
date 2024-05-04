@@ -8,5 +8,6 @@ import "./main/activateCategory"
 import "./main/burger"
 import "./main/formSubmit"
 import "./main/zoom"
+import "./main/popup"
 
 import "../css/main.scss";

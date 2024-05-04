@@ -39,7 +39,7 @@ $product_class = get_the_terms($product_id, 'class');
             if ($product_size) {
                 ?>
                 <span class="p11 d-block basket-products__size">
-                    <?= $product_size; ?>
+                    <?= $product_size . " (cm)"; ?>
                 </span>
                 <?php
             }

@@ -69,7 +69,10 @@ $pages = [3, 261, 277];
 
 
 <?php
-if (!is_404()) get_template_part("templates/burgerMenu");
+if (!is_404()) {
+    get_template_part("templates/burgerMenu");
+    get_template_part("templates/popup");
+}
 
 wp_footer();
 

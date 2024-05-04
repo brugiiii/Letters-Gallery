@@ -257,13 +257,19 @@
   /* width */
   &.scroll-active {
     &::-webkit-scrollbar {
+      cursor: pointer;
       display: block;
-      width: rem(2);
+      width: rem(5);
+
+      @include tablet(){
+        width: rem(2);
+      }
     }
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
+    cursor: pointer;
     border-radius: rem(8);
 
     @include tablet() {

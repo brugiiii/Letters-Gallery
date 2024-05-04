@@ -12,7 +12,7 @@ function translate_and_output($string_key, $group = "Main Page")
 }
 
 $strings_to_translate = array(
-    "artists" => "Artist",
+    "artist" => "Artist",
     "subject_matter" => "Subject Matter",
     "prev" => "prev",
     "next" => "next",
@@ -23,6 +23,7 @@ $strings_to_translate = array(
     "delete" => "Delete",
     "checkout" => "Checkout",
     "copyright" => "Copyright &#169; 2023 Letters Gallery",
+    "name" => "Name",
     "email" => "Email address",
     "accessories" => "Accessories You May Like",
     "all_accessories" => "All accessories",
@@ -44,7 +45,7 @@ $strings_to_translate = array(
     "accessory_details" => "accessory details",
     "painting" => "Painting",
     "accessory" => "Accessory",
-    "size" => "Size (Cm)",
+    "size" => "Size (cm)",
     "clear_all" => "clear all",
     "female_accessories" => "Female Accessories",
     "male_accessories" => "Male Accessories",

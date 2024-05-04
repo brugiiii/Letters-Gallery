@@ -43,9 +43,12 @@
                     <?= get_template_part('templates/navigation', null, array('location' => 'menu-header')); ?>
                     <span class="nav-line"></span>
                 </nav>
-                <?= get_template_part('templates/languageSwitcher'); ?>
-
-                <?= get_template_part('templates/cartButton'); ?>
+                <div class="toolbar d-flex align-items-center">
+                    <?=
+                    get_template_part('templates/languageSwitcher');
+                    get_template_part('templates/cartButton');
+                    ?>
+                </div>
             </div>
         </div>
 

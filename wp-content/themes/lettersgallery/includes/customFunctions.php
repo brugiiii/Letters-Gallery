@@ -4,7 +4,7 @@ function get_image($name)
     echo get_template_directory_uri() . "/assets/images/" . $name;
 }
 
-function send_email_message($email) {
+function send_email_message($name, $email) {
     $to = get_option('admin_email');
     $subject = 'Message from Website Form Submission';
 
@@ -24,7 +24,10 @@ function send_email_message($email) {
     $message .= '</head><body>';
     $message .= '<h2>Message from Website Form</h2>';
     $message .= '<p>Contact details:</p>';
-    $message .= "<p><strong>Email:</strong> $email</p>";
+
+    if($name) $message .= "<p><strong>Name:</strong> $name</p>";
+    if($email)  $message .= "<p><strong>Email:</strong> $email</p>";
+
     $message .= '</body></html>';
 
     $headers = array(

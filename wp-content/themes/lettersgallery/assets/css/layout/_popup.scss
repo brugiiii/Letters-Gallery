@@ -1,0 +1,176 @@
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: rem(620);
+  max-height: 95%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background-color: $white-color;
+
+  @include tablet() {
+    width: rem(343);
+  }
+
+  & .loader {
+    width: rem(75);
+    height: rem(75);
+  }
+}
+
+.popup-inner {
+  @include transition(opacity);
+  padding: rem(72) rem(66.5);
+
+  @include tablet() {
+    padding: rem(80) rem(20) rem(75) rem(13);
+  }
+}
+
+.popup-inner:has(.popup-form.success) {
+  opacity: 0;
+  pointer-events: none;
+
+  & + .success-wrapper {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.popup-inner:has(.popup-form.loading) {
+  opacity: 0.7;
+  pointer-events: none;
+
+  & ~ .loader-wrapper {
+    visibility: visible;
+
+    & .loader {
+      animation: l13 1s infinite linear;
+    }
+  }
+}
+
+.popup-button-wrapper {
+  position: absolute;
+  top: 0;
+  right: rem(17);
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+
+  @include tablet() {
+    right: rem(20);
+  }
+}
+
+.hide-popup {
+  @include hover(fill $base-22 $base-2);
+
+  position: sticky;
+  top: rem(17);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(40);
+  height: rem(40);
+  border-radius: rem(5);
+  cursor: pointer;
+  background-color: $base-19;
+  pointer-events: all;
+
+  @include tablet() {
+    top: rem(20);
+  }
+}
+
+.hide-popup__icon {
+  width: rem(22);
+  height: rem(22);
+}
+
+.popup-text {
+  font-size: rem(24);
+  line-height: rem(26);
+
+  @include tablet() {
+    font-size: rem(18);
+    line-height: rem(24);
+  }
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  padding: rem(43) rem(38.5) rem(86);
+
+  @include tablet() {
+    padding: 0;
+    margin-top: rem(32);
+  }
+}
+
+.popup-form__field {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-of-type) {
+    margin-top: rem(26);
+  }
+}
+
+.popup-form__title {
+  color: $base-20;
+}
+
+.popup-form__input {
+  margin-top: rem(12);
+  padding: rem(16) rem(15);
+  border: rem(1) solid $base-21;
+}
+
+.popup-form__button {
+  @include hover(background-color $base-1 $base-2);
+  padding: rem(16);
+  border: rem(1) solid $black-color;
+  border-radius: rem(2);
+  margin-top: rem(50);
+  font-size: rem(18);
+  line-height: rem(23.04);
+  color: $white-color;
+
+  @include tablet() {
+    font-size: rem(15);
+    line-height: rem(19.2);
+  }
+}
+
+.success-wrapper {
+  @include transition(opacity);
+
+  padding: rem(125) rem(66.5) 0;
+  opacity: 0;
+  pointer-events: none;
+  font-size: rem(24);
+  line-height: rem(26);
+
+  @include tablet(){
+    padding: rem(100) rem(20) 0 rem(13);
+    font-size: rem(18);
+    line-height: rem(24);
+  }
+}
+
+.success-text {
+  margin-top: rem(27);
+
+  @include tablet(){
+    margin-top: rem(22);
+  }
+}
+
+.success-icon {
+  width: rem(75);
+  height: rem(75);
+  margin-top: rem(50);
+}

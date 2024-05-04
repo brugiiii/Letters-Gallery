@@ -32,8 +32,6 @@
     }
 
     &:nth-child(2) {
-      margin-top: rem(215);
-
       grid-column: 7 / -1;
 
       @include tablet() {
@@ -70,7 +68,7 @@
 
       grid-column: 1 / 7;
 
-      margin-top: rem(-104);
+      margin-top: rem(111);
 
       @include tablet() {
         display: block;
@@ -131,7 +129,7 @@
       display: flex;
       gap: rem(22);
 
-      margin-top: rem(299);
+      margin-top: rem(514);
 
       @include tablet() {
         display: block;
@@ -188,10 +186,12 @@
       align-self: flex-start;
       gap: rem(22);
       margin-top: rem(70);
+      margin-bottom: rem(70);
 
       @include tablet() {
         display: block;
         margin-top: rem(50);
+        margin-bottom: 0;
       }
 
       & .artists-list__thumb {
@@ -248,8 +248,6 @@
     }
 
     &:nth-child(6n + 5) {
-      margin-top: rem(215);
-
       grid-column: 7 / -1;
 
       @include tablet() {
@@ -286,7 +284,7 @@
 
       grid-column: 1 / 7;
 
-      margin-top: rem(-104);
+      margin-top: rem(111);
 
       @include tablet() {
         display: block;

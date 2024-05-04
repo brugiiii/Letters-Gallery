@@ -47,7 +47,8 @@
 }
 
 .about-inner {
-  display: contents;
+  display: flex;
+  flex-direction: column;
 
   @include tablet() {
     display: block;
@@ -55,6 +56,12 @@
 }
 
 .about-text {
+  margin-bottom: rem(30);
+
+  @include tablet(){
+    margin-bottom: 0;
+  }
+
   & p:not(:first-child) {
     margin-top: var(--offset-30);
   }
@@ -90,4 +97,21 @@
 
 .about-button:not(.active) .less {
   display: none;
+}
+
+.show-popup {
+  @include hover(background-color $base-1 $base-2);
+
+  align-self: start;
+  min-width: rem(281);
+  padding: rem(12);
+  margin-top: auto;
+  margin-bottom: 0;
+  border: rem(1) solid $black-color;
+  border-radius: rem(2);
+  color: $white-color;
+
+  @include tablet(){
+    margin-top: rem(22);
+  }
 }

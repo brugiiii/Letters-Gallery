@@ -1,4 +1,5 @@
 const refs = {
+    bodyEl: $("body"),
     navLinks: $(".header .nav-list > li"),
     navLine: $(".header .main-nav .nav-line"),
     scrollTop: $(".scroll-top"),
@@ -8,7 +9,10 @@ const refs = {
     burgerMenuEl: $(".menu"),
     footerFormEL: $(".footer-form"),
     menuButtonMob: $(".menu .menu-item-has-children"),
-    bodyEl: $("body"),
+    popupBackdrop: $("#popup-backdrop"),
+    showPopupButton: $(".show-popup"),
+    hidePopupButton: $(".hide-popup"),
+    popupForm: $(".popup-form")
 }
 
 export default refs

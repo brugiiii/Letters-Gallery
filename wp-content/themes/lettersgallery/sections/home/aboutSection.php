@@ -44,13 +44,16 @@ $paragraphs = explode("</p>", $about_text);
                     }
                     ?>
                 </div>
-                <button class="about-button text-uppercase letter-spacing bg-transparent p-0 border-0 fw-medium text-decoration-underline">
+                <button type="button" class="about-button text-uppercase letter-spacing bg-transparent p-0 border-0 fw-medium text-decoration-underline">
                     <span class="more">
                         <?= translate_and_output('read_more'); ?>
                     </span>
                     <span class="less">
                         <?= translate_and_output('show_less'); ?>
                     </span>
+                </button>
+                <button type="button" class="show-popup h5 fw-normal">
+                    <?= the_field('about_button'); ?>
                 </button>
             </div>
         </div>
