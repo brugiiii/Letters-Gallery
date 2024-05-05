@@ -207,7 +207,7 @@
     z-index: 200;
     display: block;
     width: rem(284);
-    padding: rem(95) rem(14) 0 rem(20);
+    padding: rem(95) rem(10) 0 rem(20);
     margin-top: 0;
     opacity: 0;
     visibility: hidden;
@@ -257,22 +257,22 @@
   /* width */
   &.scroll-active {
     &::-webkit-scrollbar {
-      cursor: pointer;
       display: block;
       width: rem(5);
 
       @include tablet(){
-        width: rem(2);
+        width: rem(4);
       }
     }
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
-    cursor: pointer;
+    width: rem(5);
     border-radius: rem(8);
 
     @include tablet() {
+      width: rem(4);
       margin-top: rem(17);
       margin-bottom: rem(17);
     }

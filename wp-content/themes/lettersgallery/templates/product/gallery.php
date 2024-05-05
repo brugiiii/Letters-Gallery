@@ -2,21 +2,19 @@
 $product = wc_get_product();
 $thumbnail_id = get_post_thumbnail_id();
 $gallery_image_ids = $product->get_gallery_image_ids();
+$gallery = [];
 
-if ($thumbnail_id || !empty($gallery_image_ids)) {
-    $gallery = [];
+$add_image = function($id) {
+    return ['id' => $id, 'url' => wp_get_attachment_image_url($id, 'full')];
+};
 
-    if ($thumbnail_id) {
-        $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-        $gallery[] = ['id' => $thumbnail_id, 'url' => $thumbnail_url];
-    }
+$thumbnail_id ? $gallery[] = $add_image($thumbnail_id) : null;
+foreach ($gallery_image_ids as $image_id) {
+    $gallery[] = $add_image($image_id);
+}
 
-    foreach ($gallery_image_ids as $image_id) {
-        $image_url = wp_get_attachment_image_url($image_id, 'full');
-        $gallery[] = ['id' => $image_id, 'url' => $image_url];
-    }
-} else {
-    $gallery = [['id' => 5, 'url' => wp_get_attachment_image_src(5, 'full')]];
+if (empty($gallery)) {
+    $gallery[] = $add_image(5);
 }
 ?>
 

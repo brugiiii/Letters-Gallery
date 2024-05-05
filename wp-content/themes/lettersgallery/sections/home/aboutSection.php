@@ -28,7 +28,7 @@ $paragraphs = explode("</p>", $about_text);
                                 echo "{$paragraphs[$i]}</p>";
                             }
                         }
-                        if (count($paragraphs) > 2) {
+                        if (count($paragraphs) > 3) {
                             ?>
                             <div class="about-text__item">
                                 <?php
@@ -44,14 +44,21 @@ $paragraphs = explode("</p>", $about_text);
                     }
                     ?>
                 </div>
-                <button type="button" class="about-button text-uppercase letter-spacing bg-transparent p-0 border-0 fw-medium text-decoration-underline">
+                <?php
+                if (count($paragraphs) > 3) {
+                    ?>
+                    <button type="button"
+                            class="about-button text-uppercase letter-spacing bg-transparent p-0 border-0 fw-medium text-decoration-underline">
                     <span class="more">
                         <?= translate_and_output('read_more'); ?>
                     </span>
-                    <span class="less">
+                        <span class="less">
                         <?= translate_and_output('show_less'); ?>
                     </span>
-                </button>
+                    </button>
+                    <?php
+                }
+                ?>
                 <button type="button" class="show-popup h5 fw-normal">
                     <?= the_field('about_button'); ?>
                 </button>

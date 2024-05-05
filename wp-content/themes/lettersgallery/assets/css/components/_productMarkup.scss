@@ -44,7 +44,9 @@
 }
 
 .products__link {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding-bottom: var(--offset-28);
 
   @media (hover: hover) {
@@ -58,6 +60,12 @@
         color: $white-color;
         background-color: $base-1;
       }
+    }
+  }
+
+  &:has(.products__size){
+    & .products__price {
+      margin-top: auto;
     }
   }
 }
@@ -99,14 +107,16 @@
 
 .products__size {
   margin-top: var(--offset-13);
+  margin-bottom: var(--offset-23);
 }
 
 .products__price {
-  margin-top: var(--offset-23);
+  margin-top: rem(58);
 
   @include tablet() {
     display: flex;
     justify-content: space-between;
+    margin-top: rem(38);
   }
 
   & > span:first-child {

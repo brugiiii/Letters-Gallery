@@ -8,7 +8,38 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="theme-color" content="#3F352C"/>
 
-    <?php wp_head(); ?>
+    <?php
+    $title = get_field("meta_title");
+    $description = get_field("meta_description");
+    $keywords = get_field("meta_keywords");
+    $image = get_field("meta_image");
+
+    if ($title) {
+        ?>
+        <meta name="title" content="<?= $title; ?>">
+        <meta property="og:title" content="<?= $title; ?>">
+        <meta name="twitter:title" content="<?= $title; ?>">
+        <?php
+    }
+    if ($description) {
+        ?>
+        <meta name="description" content="<?= $description; ?>">
+        <meta property="og:description" content="<?= $description; ?>">
+        <meta name="twitter:description" content="<?= $description; ?>">
+        <?php
+    }
+    if ($keywords) {
+        ?>
+        <meta name="keywords" content="<?= $keywords; ?>">
+        <?php
+    }
+    if ($image) {
+        ?>
+        <meta property="og:image" content="<?= $image; ?>">
+        <?php
+    }
+    wp_head();
+    ?>
 
     <title><?php wp_title(); ?></title>
 
@@ -25,15 +56,8 @@
                 <?=
                 get_template_part('templates/logo');
                 get_template_part('templates/contacts', null, array("skip_iteration_id" => 2));
+                get_template_part('templates/burgerButton');
                 ?>
-
-                <button type="button" class="burger bg-transparent border-0 px-0">
-                    <span class="burger__wrapper">
-                        <span class="burger__item"></span>
-                        <span class="burger__item"></span>
-                        <span class="burger__item"></span>
-                    </span>
-                </button>
             </div>
         </div>
 

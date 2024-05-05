@@ -1,5 +1,6 @@
 import refs from "./refs"
 import {productsSkeleton} from "../helpers/skeleton";
+import {handleButtonClick, hideFilter} from "./mobileFilterVisibility"
 
 const {ajax_url} = settings;
 const {
@@ -105,6 +106,11 @@ function renderFilterButtons() {
     <button data-tax-id="${term.id}"><span>${term.text}</span></button>`).join('');
 
     filterEl.html(buttonsMarkup)
+
+    if (window.innerWidth < 1025){
+        hideFilter()
+        handleButtonClick()
+    }
 }
 
 galleryNav.on("click", ".nav-list__button", handleNavClick)

@@ -2,7 +2,7 @@ import refs from "./refs"
 
 const {mobileFilterButton, closeFilter} = refs
 
-function handleButtonClick() {
+export function handleButtonClick() {
     if (mobileFilterButton.hasClass("active")) return;
 
     setTimeout(() => {
@@ -18,7 +18,7 @@ function handleDocumentClick(e) {
     }
 }
 
-function hideFilter(){
+export function hideFilter(){
     $(document).off("click", handleDocumentClick);
 
     mobileFilterButton.toggleClass("active");

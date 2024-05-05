@@ -15,8 +15,8 @@
   gap: rem(14);
 
   @include tablet(){
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    display: none;
+    //grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -104,7 +104,7 @@
 
   align-self: start;
   min-width: rem(281);
-  padding: rem(12);
+  padding: rem(11);
   margin-top: auto;
   margin-bottom: 0;
   border: rem(1) solid $black-color;
