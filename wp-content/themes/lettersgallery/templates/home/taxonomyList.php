@@ -1,6 +1,7 @@
 <?php
 $products = $args["products"] ?? null;
 $param = $args["param"] ?? null;
+$index = $args["index"] ?? 0;
 
 $terms = get_terms(array(
     "taxonomy" => "product_" . $param,
@@ -8,10 +9,10 @@ $terms = get_terms(array(
 
 if (!empty($terms) && !is_wp_error($terms)) {
     ?>
-    <h4 class="h5 fw-semibold gallery__title mb-0">
+    <h4 class="p3 fw-semibold gallery__title mb-0 <?= $index === 0 ? 'active' : ''; ?>">
         <?= translate_and_output($param); ?>
     </h4>
-    <ul class="<?= $param . "-list nav-list"; ?>">
+    <ul class="nav-list">
         <?php
         foreach ($terms as $term) {
             ?>

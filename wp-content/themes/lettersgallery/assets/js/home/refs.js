@@ -18,7 +18,7 @@ const refs = {
     artistsButton: $(".artists-button"),
     cardButtonPrice: $(".card-button__price"),
     mobileFilterButton: $(".gallery-aside__button"),
-    closeFilter: $(".gallery-nav-close")
+    closeFilter: $(".gallery-nav-close"),
 }
 
 export default refs

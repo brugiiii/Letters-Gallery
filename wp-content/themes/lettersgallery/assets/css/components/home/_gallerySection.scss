@@ -28,12 +28,58 @@
 }
 
 .gallery-nav {
-  &:not(:first-of-type) {
+  &.active {
+    & .gallery__title {
+      &::after {
+        @include tablet() {
+          transform: rotateX(180deg);
+        }
+      }
+    }
+  }
+
+  &:not(:first-child) {
     margin-top: var(--offset-50);
+
+    & .nav-list {
+      @include tablet() {
+        display: none;
+      }
+    }
+  }
+
+  & .gallery__title {
+    @include tablet() {
+      display: flex;
+      align-items: center;
+      gap: rem(6);
+      font-size: rem(16);
+      line-height: rem(19.5);
+    }
+
+    &::after {
+      @include tablet() {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: rem(4.75) solid transparent;
+        border-right: rem(4.75) solid transparent;
+        border-top: rem(6.8) solid $base-1;
+        transition: transform 0.4s ease-in-out;
+      }
+    }
   }
 
   & .nav-list {
-    margin-top: var(--offset-24);
+    margin-top: rem(18);
+
+    @include tablet() {
+      margin-top: rem(12);
+    }
+
+    @media screen and (min-width: 1025px){
+      display: block !important;
+    }
   }
 
   & .nav-list__item {
@@ -207,7 +253,7 @@
     z-index: 200;
     display: block;
     width: rem(284);
-    padding: rem(95) rem(10) 0 rem(20);
+    padding: rem(57) rem(20);
     margin-top: 0;
     opacity: 0;
     visibility: hidden;
@@ -248,9 +294,8 @@
   text-align: start;
 
   @include tablet() {
-    max-height: rem(496);
+    max-height: initial;
     padding-left: 0;
-    padding-bottom: rem(12);
     direction: ltr;
   }
 
@@ -260,8 +305,8 @@
       display: block;
       width: rem(5);
 
-      @include tablet(){
-        width: rem(4);
+      @include tablet() {
+        display: none;
       }
     }
   }
@@ -270,12 +315,6 @@
   &::-webkit-scrollbar-track {
     width: rem(5);
     border-radius: rem(8);
-
-    @include tablet() {
-      width: rem(4);
-      margin-top: rem(17);
-      margin-bottom: rem(17);
-    }
   }
 
   /* Handle */
@@ -286,7 +325,7 @@
 
   /* Track */
   &::-webkit-scrollbar-track {
-    background-color: #DFDFDF;
+    background-color: $base-23;
   }
 }
 

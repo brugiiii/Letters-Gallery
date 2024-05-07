@@ -53,10 +53,10 @@ $products = new WP_Query($query);
                     </div>
                     <div class="gallery-nav-inner" data-class-id="<?= $class; ?>">
                         <?php
-                        foreach ($params as $param) {
+                        foreach ($params as $index => $param) {
                             ?>
                             <div class="gallery-nav">
-                                <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "products" => $products)); ?>
+                                <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "products" => $products, "index" => $index)); ?>
                             </div>
                             <?php
                         }
