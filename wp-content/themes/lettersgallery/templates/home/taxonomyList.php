@@ -9,7 +9,7 @@ $terms = get_terms(array(
 
 if (!empty($terms) && !is_wp_error($terms)) {
     ?>
-    <h4 class="p3 fw-semibold gallery__title mb-0 <?= $index === 0 ? 'active' : ''; ?>">
+    <h4 class="p3 fw-semibold gallery__title mb-0">
         <?= translate_and_output($param); ?>
     </h4>
     <ul class="nav-list">

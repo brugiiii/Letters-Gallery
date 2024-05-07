@@ -38,14 +38,12 @@
     }
   }
 
+  @include tablet() {
+    display: none;
+  }
+
   &:not(:first-child) {
     margin-top: var(--offset-50);
-
-    & .nav-list {
-      @include tablet() {
-        display: none;
-      }
-    }
   }
 
   & .gallery__title {
