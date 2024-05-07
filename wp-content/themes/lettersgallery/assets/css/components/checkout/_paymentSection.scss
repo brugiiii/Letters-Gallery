@@ -63,7 +63,8 @@
         }
       }
 
-      & .woocommerce-order-details__title {
+      & .woocommerce-order-details__title,
+      & .woocommerce-column__title {
         margin-bottom: rem(12);
         font-size: rem(32);
         line-height: rem(39.01);
