@@ -153,20 +153,29 @@
         }
 
         & > .form-row {
-          margin-top: rem(22);
+          max-width: rem(343);
+
+          &:last-of-type {
+            margin-top: rem(10);
+          }
+
+          &:before,
+          &:after {
+            display: none;
+          }
         }
 
         & input {
+          height: rem(40);
           border: rem(1) solid $base-24;
           border-radius: rem(3);
           font-weight: 500;
           background-color: $base-18;
-          max-width: rem(343);
         }
 
         & .woocommerce-button {
           @include hover(background-color $base-1 $base-2);
-          max-width: rem(343);
+          width: 100%;
           border: rem(1) solid $black-color;
           border-radius: rem(2);
           font-size: rem(18);
