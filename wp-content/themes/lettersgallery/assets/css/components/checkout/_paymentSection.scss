@@ -61,6 +61,11 @@
           color: #8A8A8A;
         }
       }
+    }
+
+    //SUCCESS PAYMENT
+    & > .woocommerce {
+      grid-column: 1 / -1;
 
       & .woocommerce-order-details__title,
       & .woocommerce-column__title {
@@ -87,10 +92,6 @@
           margin-bottom: rem(20);
         }
       }
-    }
-
-    & > .woocommerce {
-      grid-column: 1 / -1;
     }
 
     &:has(> .woocommerce) {
