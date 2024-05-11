@@ -16,7 +16,7 @@ function send_email_message($formData)
 
     // Styling for email message
     ob_start();
-    get_template_part("templates/emailMessage", array("form_data" => $formData));
+    get_template_part("templates/emailMessage", null, array("form_data" => $formData));
     $message = ob_get_clean();
 
     $headers = array(
