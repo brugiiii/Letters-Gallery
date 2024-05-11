@@ -12,7 +12,7 @@ const refs = {
     popupBackdrop: $("#popup-backdrop"),
     showPopupButton: $(".show-popup"),
     hidePopupButton: $(".hide-popup"),
-    popupForm: $(".popup-form")
+    popupForm: $(".popup-form"),
 }
 
 export default refs

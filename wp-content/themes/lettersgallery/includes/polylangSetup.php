@@ -23,7 +23,6 @@ $strings_to_translate = array(
     "delete" => "Delete",
     "checkout" => "Checkout",
     "copyright" => "Copyright &#169; 2023 Letters Gallery",
-    "name" => "Name",
     "email" => "Email address",
     "accessories" => "Accessories You May Like",
     "all_accessories" => "All accessories",

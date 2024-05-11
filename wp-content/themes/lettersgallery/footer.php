@@ -22,7 +22,8 @@ $pages = [3, 261, 277];
                                  height="12">
                                 <use href="<?php get_image('sprite.svg#arrow-right'); ?>"></use>
                             </svg>
-                            <svg class="position-absolute top-50 start-50 footer-form__success-icon" width="20" height="16">
+                            <svg class="position-absolute top-50 start-50 footer-form__success-icon" width="20"
+                                 height="16">
                                 <use href="<?php get_image('sprite.svg#success'); ?>"></use>
                             </svg>
                         </button>
@@ -49,13 +50,13 @@ $pages = [3, 261, 277];
                 </div>
                 <div class="footer-inner">
                     <?php
-                    foreach ($pages as $page){
+                    foreach ($pages as $page) {
                         $page_id = pll_get_post($page, $current_lang);
                         ?>
                         <a class="p4 letter-spacing footer-link" href="<?= get_permalink($page_id); ?>">
                             <?= get_the_title($page_id); ?>
                         </a>
-                    <?php
+                        <?php
                     }
                     ?>
                 </div>
@@ -64,11 +65,7 @@ $pages = [3, 261, 277];
     </footer>
     </div>
     <?php
-} ?>
-
-
-
-<?php
+}
 if (!is_404()) {
     get_template_part("templates/burgerMenu");
     get_template_part("templates/popup");

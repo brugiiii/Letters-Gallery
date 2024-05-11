@@ -9,5 +9,6 @@ import "./main/burger"
 import "./main/formSubmit"
 import "./main/zoom"
 import "./main/popup"
+import "./main/inputMask"
 
 import "../css/main.scss";

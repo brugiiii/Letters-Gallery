@@ -117,16 +117,38 @@
   &:not(:first-of-type) {
     margin-top: rem(26);
   }
+
+  &:has( .popup-form__input[required]) {
+    & .popup-form__title::after {
+      content: "*";
+      color: #F00;
+    }
+  }
 }
 
 .popup-form__title {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(4);
   color: $base-20;
+
+
 }
 
 .popup-form__input {
+  width: 100%;
   margin-top: rem(12);
   padding: rem(16) rem(15);
   border: rem(1) solid $base-21;
+  resize: none;
+}
+
+textarea {
+  min-height: calc(#{rem(34)} + 4em);
+}
+
+.iti {
+  margin-top: rem(12);
 }
 
 .popup-form__button {
@@ -154,7 +176,7 @@
   font-size: rem(24);
   line-height: rem(26);
 
-  @include tablet(){
+  @include tablet() {
     padding: rem(100) rem(20) 0 rem(13);
     font-size: rem(18);
     line-height: rem(24);
@@ -164,7 +186,7 @@
 .success-text {
   margin-top: rem(27);
 
-  @include tablet(){
+  @include tablet() {
     margin-top: rem(22);
   }
 }
