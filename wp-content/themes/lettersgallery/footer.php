@@ -34,9 +34,6 @@ $post_id = pll_get_post(11, $current_lang);
                     <p class="p3 text-white fw-semibold text-uppercase">
                         <?= the_field("sides_title", $post_id); ?>
                     </p>
-                    <p class="p5 fw-light footer-text">
-                        <?= the_field("sides_right_text", $post_id); ?>
-                    </p>
                     <?= get_template_part('templates/contacts'); ?>
                 </div>
                 <div class="footer-inner">
