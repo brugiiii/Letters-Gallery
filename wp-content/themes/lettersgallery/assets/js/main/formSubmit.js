@@ -6,12 +6,11 @@ function handleFormSubmit(e) {
     e.preventDefault()
 
     const $this = $(e.currentTarget)
-    const formData = new FormData(e.currentTarget)
-    const email = formData.get('email')
+    const formData = Object.fromEntries(new FormData(e.currentTarget));
 
     const query = {
         action: "send_mail",
-        email
+        formData
     };
 
     $this.addClass("loading")

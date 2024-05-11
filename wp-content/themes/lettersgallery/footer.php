@@ -1,6 +1,7 @@
 <?php
 $current_lang = pll_current_language();
 $pages = [3, 261, 277];
+$post_id = pll_get_post(11, $current_lang);
 ?>
 
 <?php if (!is_404()) {
@@ -11,7 +12,7 @@ $pages = [3, 261, 277];
                 <div class="footer-inner">
                     <?= get_template_part('templates/logo'); ?>
                     <p class="p6 text-white footer-text">
-                        <?php the_field("sides_left_text"); ?>
+                        <?php the_field("sides_left_text", $post_id); ?>
                     </p>
                     <form class="position-relative footer-form">
                         <input class="p7 w-100 h-100 border-0 footer-form__input" type="email" inputmode="email"
@@ -31,10 +32,10 @@ $pages = [3, 261, 277];
                 </div>
                 <div class="footer-inner">
                     <p class="p3 text-white fw-semibold text-uppercase">
-                        <?= the_field("sides_title"); ?>
+                        <?= the_field("sides_title", $post_id); ?>
                     </p>
                     <p class="p5 fw-light footer-text">
-                        <?= the_field("sides_right_text"); ?>
+                        <?= the_field("sides_right_text", $post_id); ?>
                     </p>
                     <?= get_template_part('templates/contacts'); ?>
                 </div>

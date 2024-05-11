@@ -20,7 +20,6 @@
 }
 
 .popup-inner {
-  @include transition(opacity);
   padding: rem(72) rem(66.5);
 
   @include tablet() {
@@ -29,12 +28,10 @@
 }
 
 .popup-inner:has(.popup-form.success) {
-  opacity: 0;
-  pointer-events: none;
+ display: none;
 
   & + .success-wrapper {
-    opacity: 1;
-    pointer-events: all;
+    display: block;
   }
 }
 
@@ -168,16 +165,13 @@ textarea {
 }
 
 .success-wrapper {
-  @include transition(opacity);
-
-  padding: rem(125) rem(66.5) 0;
-  opacity: 0;
-  pointer-events: none;
+  display: none;
+  padding: rem(125) rem(66.5) rem(139);
   font-size: rem(24);
   line-height: rem(26);
 
   @include tablet() {
-    padding: rem(100) rem(20) 0 rem(13);
+    padding: rem(100) rem(20) rem(126) rem(13);
     font-size: rem(18);
     line-height: rem(24);
   }

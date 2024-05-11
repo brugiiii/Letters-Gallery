@@ -6,9 +6,8 @@ function get_image($name)
 
 function send_email_message($formData)
 {
-//    $to = get_option('admin_email');
-    $to = "edyabrug91@gmail.com";
-    $subject = 'Message from Website Form Submission';
+    $to = get_option('admin_email');
+    $subject = 'Letters Gallery Members Request';
 
     // Get current WordPress site URL
     $site_url = get_site_url();
