@@ -101,10 +101,9 @@ function send_mail()
 {
     if ($_SERVER["REQUEST_METHOD"] != "POST") return wp_send_json_error("The email can only be sent via a POST request.");
 
-    $name = sanitize_text_field($_POST['name']);
-    $email = sanitize_text_field($_POST['email']);
+    $formData = $_POST['formData'];
 
-    $response = send_email_message($name, $email);
+    $response = send_email_message($formData);
 
     if ($response) {
         wp_send_json_success("Email sent successfully");

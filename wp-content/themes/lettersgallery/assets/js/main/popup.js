@@ -8,15 +8,16 @@ function handleFormSubmit(e) {
     e.preventDefault();
 
     const $this = $(e.currentTarget)
+    const telInput = $this.find('input[type="tel"]');
 
-    const formData = new FormData(e.currentTarget)
-    const name = formData.get('username')
-    const email = formData.get('email')
+    const formData = Object.fromEntries(new FormData(e.currentTarget));
+    const number = telInput.intlTelInput('getNumber');
+
+    formData.phone_number = number
 
     const query = {
         action: "send_mail",
-        name,
-        email
+        formData
     };
 
     $this.addClass("loading")
