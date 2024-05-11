@@ -13,7 +13,6 @@ $links = $form_data["links"] ?? null;
 $comments = $form_data["comments"] ?? null;
 
 $formatted_data = array(array("title" => "First Name", "value" => $first_name), array("title" => "Last Name", "value" => $last_name), array("title" => "Email", "value" => $email), array("title" => "Address", "value" => $address), array("title" => "Post Code", "value" => $post_code), array("title" => "City", "value" => $city), array("title" => "State", "value" => $state), array("title" => "Country", "value" => $country), array("title" => "Phone Number", "value" => $phone_number), array("title" => "Link", "value" => $links), array("title" => "Comments", "value" => $comments));
-
 $formatted_date = date("F j, Y");
 ?>
 
@@ -80,14 +79,7 @@ $formatted_date = date("F j, Y");
                                                                             members request from</p>
 
                                                                         <h2 style="color:#7f54b3;display:block;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;font-size:18px;font-weight:bold;line-height:130%;margin:0 0 18px;text-align:left">
-                                                                            <?php
-                                                                            if ($post_code) {
-                                                                                ?>
-                                                                                [Code: <?= $post_code; ?>]
-                                                                                <?php
-                                                                            }
-                                                                            ?> (<?= $formatted_date; ?>)</h2>
-
+                                                                            [Code: <?= uniqid(); ?>] (<?= $formatted_date; ?>)</h2>
                                                                         <div style="margin-bottom:40px">
                                                                             <table cellspacing="0" cellpadding="6"
                                                                                    border="1"
