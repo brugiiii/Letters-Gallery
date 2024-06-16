@@ -69,6 +69,7 @@ function handleNavClick(e) {
     }
 
     $this.toggleClass("active")
+    query.page = 1
 
     renderFilterButtons()
     fetchProducts()
@@ -86,6 +87,8 @@ function handleFilterClick(e) {
     setTimeout(() => {
         $this.remove()
     }, 0)
+
+    query.page = 1
 
     fetchProducts()
 }
