@@ -3,6 +3,7 @@ $taxSlug = $_POST["taxSlug"] ?? "";
 $taxObjects = $_POST["taxObjects"] ?? array();
 $page = isset($_POST["page"]) ? intval($_POST["page"]) : 1;
 $class = $_POST["class"] ?? 62;
+$order = $_POST["order"] ?? "";
 $posts_per_page = 6;
 
 $taxIds = array_column($taxObjects, 'id');
@@ -11,8 +12,16 @@ $args = array(
     "post_type" => "product",
     "posts_per_page" => $posts_per_page,
     "paged" => $page,
-    "order" => "DESC"
 );
+
+if ($order) {
+    $args = array_merge($args, array(
+        "orderby" => "meta_value_num",
+        "meta_key" => "_price",
+        "order" => $order
+    ));
+}
+
 
 if (!empty($class)) {
     $args["tax_query"][] = array(

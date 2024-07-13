@@ -283,7 +283,7 @@
 
 .gallery-nav-inner {
   max-height: rem(718);
-  padding-left: rem(20);
+  padding-left: rem(30);
   overflow-y: scroll;
   direction: rtl;
   text-align: start;
@@ -298,7 +298,7 @@
   &.scroll-active {
     &::-webkit-scrollbar {
       display: block;
-      width: rem(5);
+      width: rem(10);
 
       @include tablet() {
         display: none;
@@ -308,13 +308,13 @@
 
   /* Track */
   &::-webkit-scrollbar-track {
-    width: rem(5);
-    border-radius: rem(8);
+    border-radius: rem(10);
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    border-radius: rem(8);
+    cursor: pointer;
+    border-radius: rem(10);
     background: $base-1;
   }
 

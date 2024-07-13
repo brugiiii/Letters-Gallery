@@ -60,6 +60,7 @@ $products = new WP_Query($query);
                             </div>
                             <?php
                         }
+                        get_template_part("templates/home/orderList");
                         ?>
                     </div>
                 </div>

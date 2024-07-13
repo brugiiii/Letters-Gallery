@@ -51,7 +51,7 @@
 <div class="wrapper">
     <header class="header">
 
-        <div class="header-wrapper letter-spacing">
+        <div class="header-wrapper">
             <div class="wrapper-container container d-flex justify-content-between align-items-center">
                 <?=
                 get_template_part('templates/logo');

@@ -20,7 +20,6 @@ function handleDocumentClick(e) {
 
 export function hideFilter(){
     $(document).off("click", handleDocumentClick);
-
     mobileFilterButton.toggleClass("active");
 }
 

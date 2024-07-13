@@ -32,7 +32,7 @@ if (WC()->cart) {
                 ?>
                 <p class="d-flex my-0 products__price">
                     <span class="h6 fw-medium mb-0">
-                        <?= translate_and_output("price"); ?>
+                      <?= translate_and_output("price"); ?> :
                     </span>
                     <span class="h7 fw-semibold">
                         <?= wc_price(get_post_meta(get_the_ID(), "_regular_price", true)); ?>

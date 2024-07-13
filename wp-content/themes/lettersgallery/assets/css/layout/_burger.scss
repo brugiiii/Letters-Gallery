@@ -25,7 +25,7 @@ body.menu-is-open {
 
   display: none;
 
-  padding: rem(27) 0;
+  padding: rem(13) 0 rem(15);
 
   @include tablet() {
     display: block;

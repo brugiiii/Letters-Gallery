@@ -1,6 +1,7 @@
 import refs from "./refs"
 import {productsSkeleton} from "../helpers/skeleton";
 import {handleButtonClick, hideFilter} from "./mobileFilterVisibility"
+import {logPlugin} from "@babel/preset-env/lib/debug";
 
 const {ajax_url} = settings;
 const {
@@ -15,6 +16,7 @@ const query = {
     action: 'fetch_products',
     taxSlug: "",
     taxObjects: [],
+    order: "",
     class: -1,
     page: 1
 }
@@ -34,6 +36,7 @@ function fetchProducts() {
 }
 
 function renderProducts(res) {
+
     const {markup, pagination} = JSON.parse(res)
 
     productsWrapper.html(markup)
@@ -51,6 +54,12 @@ function paginationButtonClick(e) {
 function handleNavClick(e) {
     const $this = $(e.currentTarget)
     const taxSlug = $this.data("tax-slug")
+
+    if (taxSlug === "price-order") {
+        handleOrderClick($this)
+        return
+    }
+
     const taxId = $this.data("tax-id")
 
     if ($this.hasClass("active")) {
@@ -62,7 +71,7 @@ function handleNavClick(e) {
             query.taxSlug = taxSlug
             query.taxObjects = [{id: taxId, text: $this.text()}]
 
-            $(".nav-list__button").not($this).removeClass("active")
+            $(".nav-list__button.active:not([data-order])").removeClass("active");
         } else {
             query.taxObjects.push({id: taxId, text: $this.text()})
         }
@@ -72,6 +81,23 @@ function handleNavClick(e) {
     query.page = 1
 
     renderFilterButtons()
+    fetchProducts()
+}
+
+function handleOrderClick($this) {
+    if ($this.hasClass("active")) {
+        query.order = ""
+    } else {
+        if (query.order) {
+            const siblingButton = $this.parent().siblings().children()
+            siblingButton.removeClass("active")
+        }
+
+        query.order = $this.data("order")
+    }
+
+    $this.toggleClass("active")
+
     fetchProducts()
 }
 
@@ -110,7 +136,7 @@ function renderFilterButtons() {
 
     filterEl.html(buttonsMarkup)
 
-    if (window.innerWidth < 1025){
+    if (window.innerWidth < 1025) {
         hideFilter()
         handleButtonClick()
     }

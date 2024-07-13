@@ -71,7 +71,7 @@
   }
 }
 
-.accessories-button {
+.controllers-button {
   @include hover(background-color $base-2 $base-1);
 
   position: absolute;
@@ -105,7 +105,7 @@
   }
 }
 
-.accessories-icon {
+.controllers-button {
   width: rem(54);
   height: rem(54);
 }

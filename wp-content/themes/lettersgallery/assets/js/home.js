@@ -1,4 +1,4 @@
-import "./home/heroSwiper"
+import "./home/swiper"
 import "./home/fetchProducts"
 import "./home/manipulateCart"
 import "./home/activateCategory"

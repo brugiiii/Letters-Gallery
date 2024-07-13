@@ -49,7 +49,7 @@ $product_class = get_the_terms($product_id, 'class');
                 <?= get_template_part('templates/counter', null, array("count" => $quantity)); ?>
                 <p class="h5 mb-0 basket-products__wrapper">
                     <span class="fw-normal">
-                        <?= translate_and_output("price"); ?>
+                        <?= translate_and_output("price"); ?> :
                     </span>
                     <span class="basket-price fw-semibold" data-id="<?= get_the_ID(); ?>">
                         <?= wc_price($total_price); ?>
@@ -60,7 +60,7 @@ $product_class = get_the_terms($product_id, 'class');
     </div>
     <p class="h5 mb-0 basket-products__wrapper">
         <span class="fw-normal">
-            <?= translate_and_output("price"); ?>
+          <?= translate_and_output("price"); ?> :
         </span>
         <span class="basket-price fw-semibold" data-id="<?= get_the_ID(); ?>">
             <?= wc_price($total_price); ?>

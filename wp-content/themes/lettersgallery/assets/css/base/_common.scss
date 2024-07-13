@@ -211,6 +211,6 @@ body {
   border-bottom: rem(2) solid $black-color;
 
   @include tablet() {
-    padding-bottom: rem(8);
+    padding-bottom: rem(6);
   }
 }

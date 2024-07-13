@@ -18,7 +18,7 @@ $strings_to_translate = array(
     "next" => "next",
     "no_pictures" => "No pictures",
     "no_pictures_text" => "Unfortunately, the item is not found, but we will do our best to rectify this.",
-    "price" => "Price :",
+    "price" => "Price",
     "add_to_cart" => "Add to cart",
     "delete" => "Delete",
     "checkout" => "Checkout",
@@ -49,6 +49,8 @@ $strings_to_translate = array(
     "female_accessories" => "Female Accessories",
     "male_accessories" => "Male Accessories",
     "home_and_accessories" => "Home & Accessories",
+    "high_to_lowest" => "High to lowest",
+    "lowest_to_highest" => "Lowest to highest",
 );
 
 if (function_exists("pll_register_string")) {

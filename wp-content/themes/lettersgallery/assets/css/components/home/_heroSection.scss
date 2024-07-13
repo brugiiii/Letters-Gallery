@@ -28,12 +28,11 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  padding: rem(40) rem(80) var(--offset-240) rem(150);
+  padding: rem(12) rem(80) var(--offset-240) rem(150);
 
   @include tablet() {
     display: block;
     height: auto;
-    padding-top: rem(30);
     padding-left: rem(18);
     padding-right: rem(16);
   }

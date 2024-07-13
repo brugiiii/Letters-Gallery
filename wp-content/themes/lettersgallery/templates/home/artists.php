@@ -1,25 +1,26 @@
-<div class="artists-list grid-container">
+<div class="artists-wrapper">
     <?php
     $terms = get_terms(array(
         'taxonomy' => 'product_artist',
     ));
 
     if (!empty($terms) && !is_wp_error($terms)) {
-        $count = 0;
-        foreach ($terms as $term) {
-            if ($count < 3) :
-                get_template_part("templates/home/artistsItem", null, array("term" => $term));
-            else :
-                if ($count === 3) :
-                    echo '<div class="artists-list__wrapper">';
-                endif;
-                get_template_part("templates/home/artistsItem", null, array("term" => $term));
-                if ($count === count($terms) - 1) :
-                    echo '</div>';
-                endif;
-            endif;
-            $count++;
-        }
+        ?>
+        <div id="artists-swiper" class="swiper">
+            <ul class="swiper-wrapper artists-list">
+                <?php
+                foreach ($terms as $term) {
+                    if ($term) {
+                        get_template_part("templates/home/artistsItem", null, array("term" => $term));
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="controllers-wrapper d-flex justify-content-end">
+            <?= get_template_part('templates/product/controllers'); ?>
+        </div>
+        <?php
     }
     ?>
 </div>

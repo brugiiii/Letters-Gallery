@@ -6,14 +6,14 @@
 
     display: inline-block;
 
-    padding-top: rem(21);
-    padding-bottom: rem(21);
+    padding: rem(8) 0;
 
     font-size: rem(22);
-    line-height: calc(26.82 / 22);
+    line-height: rem(26.82);
+    letter-spacing: rem(-0.88);
 
     @include tablet() {
-      padding-top: rem(22);
+    padding: rem(9) 0;
     }
   }
 
@@ -51,7 +51,7 @@
   }
 
   & .nav-wrapper {
-    padding-bottom: rem(17);
+    padding-bottom: rem(6);
     border-bottom: rem(2) solid $base-5;
 
     @include tablet() {
@@ -63,7 +63,7 @@
   & .toolbar {
     gap: rem(20);
 
-    @include tablet(){
+    @include tablet() {
       justify-content: space-between;
       gap: 0;
       width: 100%;
@@ -117,7 +117,7 @@
     display: block;
     width: rem(5);
 
-    @include tablet(){
+    @include tablet() {
       width: rem(4);
     }
   }
@@ -198,19 +198,19 @@
 
     font-size: rem(18);
     line-height: calc(21.94 / 18);
-
+    letter-spacing: rem(-0.72);
   }
 }
 
 .header-container {
-  padding-top: rem(29);
+  padding-top: rem(16);
 
   letter-spacing: -0.04em;
   background-color: $white-color;
 
   @include tablet() {
-    padding-top: rem(14);
-    padding-bottom: rem(10);
+    padding-top: rem(12);
+    padding-bottom: rem(8);
     border-bottom: rem(2) solid $base-5;
   }
 }
