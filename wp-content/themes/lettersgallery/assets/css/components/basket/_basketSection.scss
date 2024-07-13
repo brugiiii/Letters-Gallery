@@ -73,22 +73,6 @@
     height: rem(70);
   }
 
-  &.loading {
-    pointer-events: none;
-
-    & .loader-wrapper {
-      visibility: visible;
-    }
-
-    & .loader {
-      animation: l13 1s infinite linear;
-    }
-
-    & .overlay {
-      opacity: 0.78;
-    }
-  }
-
   & > .basket-products__wrapper {
     display: none;
 
@@ -179,77 +163,6 @@
   & .basket-products__wrapper {
     @include tablet() {
       display: none;
-    }
-  }
-}
-
-.counter {
-  display: flex;
-  align-items: center;
-  max-width: fit-content;
-
-  height: rem(32);
-  border: rem(1) solid $black-color;
-
-  @include tablet() {
-    height: rem(25);
-    display: flex;
-    align-items: flex-end;
-  }
-}
-
-.counter__value {
-  @include tablet() {
-    font-size: rem(18);
-    line-height: rem(21.94);
-  }
-}
-
-.counter__button {
-  box-sizing: content-box;
-
-  width: rem(17);
-  height: rem(17);
-
-  padding: rem(7) rem(16) rem(6);
-
-  @include tablet() {
-    width: rem(14);
-    height: rem(14);
-
-    padding: rem(5) 0 rem(4);
-  }
-
-  &:first-of-type {
-    @include tablet() {
-      padding-left: rem(12);
-      padding-right: rem(18);
-    }
-
-    & .counter__icon {
-      width: rem(17);
-      height: rem(17);
-
-      @include tablet() {
-        width: rem(14);
-        height: rem(14);
-      }
-    }
-  }
-
-  &:last-of-type {
-    @include tablet() {
-      padding-left: rem(18);
-      padding-right: rem(12);
-    }
-
-    & .counter__icon {
-      width: rem(17);
-      height: rem(1);
-
-      @include tablet() {
-        width: rem(14);
-      }
     }
   }
 }

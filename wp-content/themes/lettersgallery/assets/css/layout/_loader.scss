@@ -28,3 +28,19 @@
 
   transition: opacity 150ms ease-in-out;
 }
+
+.product-container.loading {
+  pointer-events: none;
+
+  & .loader-wrapper {
+    visibility: visible;
+  }
+
+  & .loader {
+    animation: l13 1s infinite linear;
+  }
+
+  & .overlay {
+    opacity: 0.78;
+  }
+}

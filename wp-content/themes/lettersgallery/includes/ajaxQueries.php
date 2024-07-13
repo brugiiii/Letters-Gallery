@@ -74,6 +74,8 @@ function update_product_quantity()
 
     if ($cart_item_key) {
         WC()->cart->set_quantity($cart_item_key, $quantity);
+    } else {
+        WC()->cart->add_to_cart($product_id, $quantity);
     }
 
     ob_start();

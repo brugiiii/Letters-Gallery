@@ -24,6 +24,36 @@
 
 .accessories-slide {
   box-sizing: border-box;
+
+  & .counter {
+    height: rem(25);
+  }
+
+  & .counter__button {
+    width: rem(14);
+    height: rem(14);
+
+    &:first-child {
+      padding: rem(5) rem(18) rem(4) rem(12);
+
+      & .counter__icon {
+        height: rem(14);
+      }
+    }
+
+    &:last-child {
+      padding: rem(5) rem(11) rem(4) rem(18);
+    }
+
+    & .counter__icon {
+      width: rem(14);
+    }
+  }
+
+  & .counter__value {
+    font-size: rem(18);
+    line-height: rem(21.94);
+  }
 }
 
 .products__thumb {

@@ -14,7 +14,7 @@ function manipulateCart(e) {
     const $this = $(e.currentTarget)
     const productId = $this.data("id")
     const cartAction = $this.data("action")
-    const closestCard = $this.closest(".products__item")
+    const closestCard = $this.closest(".product-container")
     const productsBuyButtons = $(".products__buy")
 
     const query = {
@@ -31,14 +31,21 @@ function manipulateCart(e) {
         url: ajax_url,
         type: 'post',
         data: query,
-        success: (res) => handleResponse($this, cartAction, closestCard, productsBuyButtons, res),
+        success: (res) => handleResponse($this, cartAction, productId, closestCard, productsBuyButtons, res),
         error: (error) => console.log(error)
     });
 }
 
-function handleResponse($this, cartAction, closestCard, productsBuyButtons, res) {
+function handleResponse($this, cartAction, productId, closestCard, productsBuyButtons, res) {
     const {basketMarkup, cartCount, cartButtonMarkup} = res.data
     const cartButton = $(".cart-button")
+
+    if (cartAction === "delete") {
+        const firstCounterButton = $(`.counter__button[data-product-id="${productId}"]:first-child`);
+        const counterValue = firstCounterButton.next()
+
+        counterValue.text("1")
+    }
 
     updateBuyButton(cartAction, $this)
 

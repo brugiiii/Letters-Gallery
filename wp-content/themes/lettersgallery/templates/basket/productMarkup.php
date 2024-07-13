@@ -7,7 +7,7 @@ $product_id = get_the_ID();
 $product_class = get_the_terms($product_id, 'class');
 ?>
 
-<li class="basket-products__item position-relative">
+<li class="basket-products__item product-container position-relative">
     <button type="button"
             class="top-0 end-0 border-0 bg-transparent p-0 basket-products__delete"
             data-action="delete"
@@ -67,8 +67,6 @@ $product_class = get_the_terms($product_id, 'class');
         </span>
     </p>
 
-    <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 bg-white"></div>
-    <div class="loader-wrapper position-absolute start-50 top-50 translate-middle">
-        <div class="loader"></div>
-    </div>
+    <?= get_template_part('templates/overlay'); ?>
+    <?= get_template_part('templates/loader', null, array("centered" => true)); ?>
 </li>

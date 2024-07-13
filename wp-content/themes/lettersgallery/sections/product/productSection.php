@@ -3,10 +3,13 @@ $product_id = get_the_ID();
 $product_sizes = wp_get_post_terms($product_id, 'product_size');
 
 $in_cart = false;
+$quantity = 1;
+
 if (WC()->cart) {
     foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
         if ($cart_item['product_id'] === $product_id) {
             $in_cart = true;
+            $quantity = $cart_item['quantity'];
             break;
         }
     }
@@ -18,7 +21,7 @@ if (WC()->cart) {
         <h1 class="h3 mb-0">
             <?php the_title(); ?>
         </h1>
-        <div class="grid-container">
+        <div class="grid-container product-container position-relative">
             <?= get_template_part('templates/product/gallery'); ?>
             <div class="d-flex flex-column product-wrapper">
                 <?php
@@ -39,7 +42,10 @@ if (WC()->cart) {
                     </span>
                 </p>
                 <?= the_field('description'); ?>
+
                 <div class="product-inner mt-auto">
+                    <?= get_template_part('templates/counter', null, array("count" => $quantity)); ?>
+
                     <button type="button" class="p3 d-block w-100 fw-medium products__button products__buy border-0"
                             data-add="<?= translate_and_output("add_to_cart"); ?>"
                             data-delete="<?= translate_and_output("delete"); ?>"
@@ -53,6 +59,9 @@ if (WC()->cart) {
                     </a>
                 </div>
             </div>
+
+            <?= get_template_part('templates/overlay'); ?>
+            <?= get_template_part('templates/loader', null, array("centered" => true)); ?>
         </div>
     </div>
 </section>

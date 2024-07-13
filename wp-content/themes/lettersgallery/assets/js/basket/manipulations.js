@@ -27,15 +27,15 @@ function updateQuantity(e) {
 }
 
 function updateProductQuantity(productId, quantity, $this) {
-    const closestCard = $this.closest(".basket-products__item")
-
+    const productContainer = $this.closest(".product-container")
+    
     const query = {
         action: 'update_product_quantity',
         productId,
         quantity
     }
 
-    closestCard.addClass("loading")
+    productContainer.addClass("loading")
 
     $.ajax({
         url: ajax_url,
@@ -46,12 +46,19 @@ function updateProductQuantity(productId, quantity, $this) {
             const priceEl = $(`.basket-price[data-id="${productId}"]`)
             const summaryWrapper = $(".basket-total")
             const cartButton = $(".cart-button")
+            const buyButton = $(`.products__buy[data-id="${productId}"]`)
+            const firstCounterButton = $(`.counter__button[data-product-id="${productId}"]:first-child`);
+            const counterValue = firstCounterButton.next()
 
-            priceEl.html(productPrice)
-            summaryWrapper.replaceWith(summaryMarkup)
-            cartButton.replaceWith(cartButtonMarkup)
+            counterValue.text(quantity)
 
-            closestCard.removeClass("loading")
+            updateBuyButton("add", buyButton)
+
+            priceEl && priceEl.html(productPrice)
+            summaryWrapper && summaryWrapper.replaceWith(summaryMarkup)
+            cartButton && cartButton.replaceWith(cartButtonMarkup)
+
+            productContainer.removeClass("loading")
         },
         error: (error) => console.log(error)
     });
@@ -60,7 +67,7 @@ function updateProductQuantity(productId, quantity, $this) {
 function removeProductFromCart(e) {
     const $this = $(e.currentTarget)
     const productId = $this.data("id")
-    const closestCard = $this.closest(".basket-products__item")
+    const productContainer = $this.closest(".basket-products__item")
 
     const query = {
         action: "manipulate_cart",
@@ -68,7 +75,7 @@ function removeProductFromCart(e) {
         productId,
     };
 
-    closestCard.addClass("loading")
+    productContainer.addClass("loading")
 
     $.ajax({
         url: ajax_url,
@@ -81,7 +88,7 @@ function removeProductFromCart(e) {
 
             updateBuyButton("delete", buyButton)
 
-            closestCard.removeClass("loading")
+            productContainer.removeClass("loading")
 
             itemCountEl.text(cartCount)
             basketWrapper.html(basketMarkup)
@@ -92,4 +99,4 @@ function removeProductFromCart(e) {
 }
 
 basketWrapper.on("click", ".basket-products__delete", removeProductFromCart)
-basketWrapper.on("click", ".counter__button", updateQuantity)
+$(document).on("click", ".counter__button", updateQuantity)

@@ -2,6 +2,17 @@
   padding-top: var(--offset-120);
 }
 
+.product {
+  & .counter {
+    margin-bottom: rem(28);
+  }
+}
+
+.product .loader {
+  width: rem(70);
+  height: rem(70);
+}
+
 .grid-container {
   margin-top: var(--offset-40);
 }
@@ -103,3 +114,4 @@
 .product-inner {
   max-width: rem(399);
 }
+

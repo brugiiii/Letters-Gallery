@@ -5,7 +5,7 @@ $product_class = get_the_terms($product_id, 'class');
 if ($product_class[0]->slug === "painting") return
 ?>
 
-<div class="counter">
+<div class="counter flex-shrink-0">
     <button class="counter__button d-flex align-items-center justify-content-center bg-transparent border-0 increment"
             data-product-id="<?= get_the_ID(); ?>">
         <svg class="counter__icon" width="17" height="17">

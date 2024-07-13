@@ -8,17 +8,20 @@ $current_lang = pll_current_language();
 $checkout_id = pll_get_post(8, $current_lang);
 
 $in_cart = false;
+$quantity = 1;
+
 if (WC()->cart) {
     foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
         if ($cart_item['product_id'] === $product_id) {
             $in_cart = true;
+            $quantity = $cart_item['quantity'];
             break;
         }
     }
 }
 ?>
 
-<div class="products__item position-relative">
+<div class="products__item product-container position-relative">
     <a class="products__link" href="<?php the_permalink(); ?>">
         <div class="products__thumb zoom-js" style="background-image: url(<?= $image_url[0]; ?>)">
             <?= wp_get_attachment_image($image_id, 'full', false, array('class' => 'products__image')); ?>
@@ -35,15 +38,19 @@ if (WC()->cart) {
             <?php
         }
         ?>
-        <p class="h5 fw-semibold mb-0 products__price">
-            <span>
-              <?= translate_and_output("price"); ?> :
-            </span>
-            <span>
-                <?= wc_price(get_post_meta(get_the_ID(), "_regular_price", true)); ?>
-            </span>
-        </p>
     </a>
+
+    <div class="price-wrapper d-flex justify-content-between align-items-end">
+        <p class="h5 fw-semibold mb-0 products__price flex-shrink-0">
+                <span>
+                  <?= translate_and_output("price"); ?> :
+                </span>
+            <span>
+                    <?= wc_price(get_post_meta(get_the_ID(), "_regular_price", true)); ?>
+                </span>
+        </p>
+        <?= get_template_part('templates/counter', null, array("count" => $quantity)); ?>
+    </div>
     <button type="button" class="p3 d-block w-100 fw-medium products__button products__buy border-0"
             data-add="<?= translate_and_output("add_to_cart"); ?>"
             data-delete="<?= translate_and_output("delete"); ?>"
@@ -55,8 +62,6 @@ if (WC()->cart) {
        class="p3 d-block text-center fw-medium products__button products__checkout">
         <?= translate_and_output("checkout"); ?>
     </a>
-    <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 bg-white"></div>
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
+    <?= get_template_part('templates/overlay'); ?>
+    <?= get_template_part('templates/loader'); ?>
 </div>
