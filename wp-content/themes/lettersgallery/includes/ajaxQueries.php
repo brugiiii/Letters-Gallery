@@ -83,15 +83,13 @@ function update_product_quantity()
     $cart_button_markup = ob_get_clean();
 
     ob_start();
-    get_template_part("templates/basket/summary", null, array("link_visible" => true));
-    $summary_markup = ob_get_clean();
+    get_template_part("templates/basket/basketMarkup");
+    $basket_markup = ob_get_clean();
 
-    $product_price = wc_price($quantity * get_post_meta($product_id, "_regular_price", true));
 
     $response = array(
-        "productPrice" => $product_price,
         "cartButtonMarkup" => $cart_button_markup,
-        "summaryMarkup" => $summary_markup
+        "basketMarkup" => $basket_markup
     );
 
     wp_send_json_success($response);

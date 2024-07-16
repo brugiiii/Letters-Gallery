@@ -42,9 +42,7 @@ function updateProductQuantity(productId, quantity, $this) {
         type: 'post',
         data: query,
         success: (res) => {
-            const {productPrice, cartButtonMarkup, summaryMarkup} = res.data;
-            const priceEl = $(`.basket-price[data-id="${productId}"]`)
-            const summaryWrapper = $(".basket-total")
+            const {cartButtonMarkup, basketMarkup} = res.data;
             const cartButton = $(".cart-button")
             const buyButton = $(`.products__buy[data-id="${productId}"]`)
             const firstCounterButton = $(`.counter__button[data-product-id="${productId}"]:first-child`);
@@ -54,8 +52,7 @@ function updateProductQuantity(productId, quantity, $this) {
 
             updateBuyButton("add", buyButton)
 
-            priceEl && priceEl.html(productPrice)
-            summaryWrapper && summaryWrapper.replaceWith(summaryMarkup)
+            basketWrapper.html(basketMarkup)
             cartButton && cartButton.replaceWith(cartButtonMarkup)
 
             productContainer.removeClass("loading")
@@ -85,7 +82,10 @@ function removeProductFromCart(e) {
             const {cartCount, basketMarkup, cartButtonMarkup} = res.data
             const buyButton = $(`.products__buy[data-id="${productId}"]`)
             const cartButton = $(".cart-button")
+            const firstCounterButton = $(`.counter__button[data-product-id="${productId}"]:first-child`);
+            const counterValue = firstCounterButton.next()
 
+            counterValue.text("1")
             updateBuyButton("delete", buyButton)
 
             productContainer.removeClass("loading")
