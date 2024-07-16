@@ -75,7 +75,7 @@
     justify-content: flex-start;
   }
 
-  & span {
+  & > span {
     &:first-child {
       @include tablet() {
         margin-right: rem(32);

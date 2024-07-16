@@ -28,21 +28,17 @@ body {
   background-color: $white-color;
 }
 
-.semibold {
-  font-weight: 600;
-}
-
-.medium {
-  font-weight: 500;
-}
 
 .letter-spacing {
   letter-spacing: -0.04em;
 }
 
-.h1 {
-  @extend .semibold;
+button {
+  color: inherit;
+}
 
+.h1 {
+  font-weight: 600;
   font-size: rem(70);
   line-height: rem(85.33);
 

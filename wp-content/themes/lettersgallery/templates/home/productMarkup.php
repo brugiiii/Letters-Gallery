@@ -40,7 +40,7 @@ if (WC()->cart) {
         ?>
     </a>
 
-    <div class="price-wrapper d-flex justify-content-between align-items-end">
+    <div class="price-wrapper d-flex flex-wrap justify-content-between align-items-end">
         <p class="h5 fw-semibold mb-0 products__price flex-shrink-0">
                 <span>
                   <?= translate_and_output("price"); ?> :

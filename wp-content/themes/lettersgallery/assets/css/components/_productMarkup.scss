@@ -88,6 +88,11 @@
 .price-wrapper {
   margin-top: auto;
   margin-bottom: var(--offset-28);
+
+  @include tablet(){
+    gap: rem(12);
+    margin-bottom: rem(22);
+  }
 }
 
 .products__price {
@@ -95,7 +100,7 @@
   @include tablet() {
     display: flex;
     justify-content: space-between;
-    margin-top: rem(38);
+    width: 100%;
   }
 
   & > span:first-child {
