@@ -3,13 +3,13 @@
 }
 
 .artists > .container {
- @include tablet(){
-   padding: 0;
- }
+  @include tablet() {
+    padding: 0;
+  }
 }
 
 .artists .section-title {
-  @include tablet(){
+  @include tablet() {
     margin: 0 rem(16);
   }
 }
@@ -26,7 +26,7 @@
   background-repeat: no-repeat;
   background-size: 200% 200%;
 
-  @include tablet(){
+  @include tablet() {
     height: rem(336);
   }
 
@@ -47,25 +47,27 @@
   line-height: rem(21.94);
 }
 
-.controllers-wrapper {
-  margin-top: rem(30);
-  gap: rem(29);
+.artists {
+  & .controllers-wrapper {
+    margin-top: rem(30);
+    gap: rem(29);
 
-  @include tablet(){
-    padding-right: rem(16);
+    @include tablet() {
+      padding-right: rem(16);
+    }
   }
-}
 
-.controllers-button {
-  @include hover(background-color $base-2 $base-1);
+  & .controllers-button {
+    @include hover(background-color $base-2 $base-1);
 
-  width: rem(54);
-  height: rem(54);
+    width: rem(54);
+    height: rem(54);
 
 
-  stroke: $white-color;
-}
+    stroke: $white-color;
+  }
 
-.controllers-button:disabled {
-  background-color: $base-9;
+  & .controllers-button:disabled {
+    background-color: $base-9;
+  }
 }

@@ -2,11 +2,12 @@
   display: flex;
   gap: var(--offset-56);
 
-  margin-top: var(--offset-56);
+  margin-top: rem(36);
 
   @include tablet() {
     gap: rem(22);
     flex-direction: column-reverse;
+    margin-top: rem(30);
   }
 }
 
@@ -14,7 +15,7 @@
   display: flex;
   gap: rem(14);
 
-  @include tablet(){
+  @include tablet() {
     display: none;
     //grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -24,21 +25,21 @@
   width: rem(220);
   height: rem(294);
 
-  @include tablet(){
+  @include tablet() {
     width: 100%;
     height: rem(301);
   }
 
-  &:first-child{
-    @include tablet(){
+  &:first-child {
+    @include tablet() {
       grid-column: 1 / 5;
     }
   }
 
   &:last-child {
-    margin-top: rem(170);
+    margin-top: rem(24);
 
-    @include tablet(){
+    @include tablet() {
       grid-column: 3 / -1;
 
       margin-top: rem(8);
@@ -47,18 +48,17 @@
 }
 
 .about-inner {
-  display: flex;
-  flex-direction: column;
+  padding-top: rem(35);
 
   @include tablet() {
-    display: block;
+    padding-top: 0;
   }
 }
 
 .about-text {
-  margin-bottom: rem(30);
+  margin-bottom: rem(80);
 
-  @include tablet(){
+  @include tablet() {
     margin-bottom: 0;
   }
 
@@ -91,7 +91,7 @@
   }
 }
 
-.about-button.active .more{
+.about-button.active .more {
   display: none;
 }
 
@@ -104,14 +104,17 @@
 
   align-self: start;
   min-width: rem(185);
-  padding: rem(8);
+  padding: rem(7);
   margin-top: auto;
   margin-bottom: 0;
   border: rem(1) solid $black-color;
   border-radius: rem(2);
+  font-size: rem(18);
+  line-height: rem(21.94);
+  letter-spacing: rem(-0.72);
   color: $white-color;
 
-  @include tablet(){
+  @include tablet() {
     margin-top: rem(22);
   }
 }

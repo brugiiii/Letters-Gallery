@@ -55,7 +55,7 @@ $products = new WP_Query($query);
                         <?php
                         foreach ($params as $index => $param) {
                             ?>
-                            <div class="gallery-nav">
+                            <div class="gallery-nav <?= $index === 0 ? "active" : ""; ?>">
                                 <?= get_template_part("templates/home/taxonomyList", null, array("param" => $param, "products" => $products, "index" => $index)); ?>
                             </div>
                             <?php

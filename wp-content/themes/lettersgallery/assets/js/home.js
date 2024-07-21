@@ -1,3 +1,4 @@
+import "../js/product/swiper"
 import "./home/swiper"
 import "./home/fetchProducts"
 import "./home/manipulateCart"

@@ -10,7 +10,14 @@
 @import "vendors/skeleton";
 
 //COMPONENTS
+@import "components/productMarkup";
+
 @import "components/home/heroSection";
 @import "components/home/aboutSection";
 @import "components/home/artistsSection";
 @import "components/home/gallerySection";
+@import "components/product/accessoriesSection";
+
+.accessories {
+  padding-top: 0;
+}

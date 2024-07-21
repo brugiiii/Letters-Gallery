@@ -59,7 +59,7 @@ $paragraphs = explode("</p>", $about_text);
                     <?php
                 }
                 ?>
-                <button type="button" class="show-popup h5 fw-normal">
+                <button type="button" class="show-popup fw-normal">
                     <?= the_field('about_button'); ?>
                 </button>
             </div>

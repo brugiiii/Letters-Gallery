@@ -4,6 +4,7 @@ const refs = {
     accessoriesWrapper: $(".accessories-wrapper"),
     buyButton: $(".products__buy"),
     galleryNav: $(".gallery-nav-inner"),
+    galleryTitles: $(".gallery__title"),
     navListButtons: $(".nav-list__button:not([data-order])"),
     filterEl: $(".filter"),
     clearAllButton: $(".filter-wrapper__button"),
