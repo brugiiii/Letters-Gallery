@@ -144,7 +144,7 @@
 }
 
 .basket-products__wrapper {
-  & span {
+  & > span {
     &:first-child {
       margin-right: var(--offset-22);
     }

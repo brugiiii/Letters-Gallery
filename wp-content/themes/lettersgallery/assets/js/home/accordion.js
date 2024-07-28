@@ -17,7 +17,6 @@ function handleTitleClick(e) {
 
 function setTitlesWidth() {
     let longestTitle = galleryTitles[0].getBoundingClientRect().width;
-
     const slicedTitles = Array.from(galleryTitles).slice(1);
 
     if (!slicedTitles || slicedTitles.length === 0) return;
@@ -29,7 +28,7 @@ function setTitlesWidth() {
             longestTitle = titleWidth;
     });
 
-    galleryNav[0].style.setProperty('--title-width', `${longestTitle / 16}rem`);
+    galleryNav[0].style.setProperty('--title-width', `${longestTitle}px`);
 }
 
 

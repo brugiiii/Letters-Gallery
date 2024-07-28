@@ -114,10 +114,13 @@
 }
 
 .price-wrapper {
+  flex-grow: 1;
+  column-gap: rem(41);
   margin-top: auto;
   margin-bottom: var(--offset-28);
 
   @include tablet() {
+    flex-grow: 0;
     gap: rem(12);
     margin-bottom: rem(22);
   }

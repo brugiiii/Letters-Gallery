@@ -3,6 +3,7 @@ $post_thumbnail_id = get_post_thumbnail_id();
 $image_id = $post_thumbnail_id ?: 5;
 $image_url = wp_get_attachment_image_src($image_id, 'full');
 $product_id = get_the_ID();
+$product_class = get_the_terms($product_id, 'class');
 $product_sizes = wp_get_post_terms($product_id, 'product_size');
 $current_lang = pll_current_language();
 $checkout_id = pll_get_post(8, $current_lang);
@@ -41,13 +42,13 @@ if (WC()->cart) {
     </a>
 
     <div class="price-wrapper d-flex flex-wrap justify-content-between align-items-end">
-        <p class="h5 fw-semibold mb-0 products__price flex-shrink-0">
-                <span>
-                  <?= translate_and_output("price"); ?> :
-                </span>
+        <p class="h5 fw-semibold mb-0 products__price flex-shrink-0 d-flex <?= $product_class[0]->slug === "painting" ? "" : "justify-content-between"; ?>">
             <span>
-                    <?= wc_price(get_post_meta(get_the_ID(), "_regular_price", true)); ?>
-                </span>
+                <?= translate_and_output("price"); ?> :
+            </span>
+            <span>
+                <?= wc_price(get_post_meta(get_the_ID(), "_regular_price", true)); ?>
+            </span>
         </p>
         <?= get_template_part('templates/counter', null, array("count" => $quantity)); ?>
     </div>

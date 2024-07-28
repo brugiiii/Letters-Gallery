@@ -9,13 +9,13 @@
 .hero-swiper {
   margin-top: rem(50);
 
-  @include mobile(){
+  @include mobile() {
     margin-top: rem(40);
   }
 }
 
 .hero-slide {
-  height: rem(500);
+  height: rem(220);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 200% 200%;
@@ -32,5 +32,9 @@
 
   & img {
     @include transition(opacity);
+  }
+
+  @include tablet() {
+    height: rem(180);
   }
 }

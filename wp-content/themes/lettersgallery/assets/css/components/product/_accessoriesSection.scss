@@ -83,6 +83,11 @@
       }
     }
   }
+
+  & .controllers-icon {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .accessories-title {
@@ -99,6 +104,16 @@
 
   @include tablet() {
     max-width: rem(330);
+  }
+}
+
+.accessories-wrapper {
+  & .products__price {
+    flex-grow: 1;
+
+    @include tablet (){
+      flex-grow: 0;
+    }
   }
 }
 
